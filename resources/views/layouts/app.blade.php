@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/TopNav/top_nav.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -26,9 +27,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
+                    @include('LaravelTopNav::menu')
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
