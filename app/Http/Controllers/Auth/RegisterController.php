@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -20,7 +21,9 @@ class RegisterController extends Controller
     |
     */
 
-    use RegistersUsers;
+    use RegistersUsers {
+        RegistersUsers::register as originalRegister;
+    }
 
     /**
      * Where to redirect users after registration.
@@ -105,6 +108,6 @@ class RegisterController extends Controller
             session()->flash('message', trans('custom.register_closed'));
             return redirect(route('login'));
         }
-        return Parent::register($request);
+        return $this->originalRegister($request);
     }
 }
