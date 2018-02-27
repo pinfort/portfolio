@@ -68,4 +68,23 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    /**
+     * override register function in RegistersUsers
+     * for add chk register able config
+     *
+     */
+    /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm()
+    {
+        if (\Config::get('custom.registable')) {
+            return view('auth.register');
+        }
+        session()->flash('message', trans('custom.register_closed'));
+        return redirect(route('login'));
+    }
 }
