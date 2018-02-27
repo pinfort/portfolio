@@ -87,4 +87,24 @@ class RegisterController extends Controller
         session()->flash('message', trans('custom.register_closed'));
         return redirect(route('login'));
     }
+
+    /**
+     * override register function in RegistersUsers
+     * for add chk register able config
+     *
+     */
+    /**
+     * Handle a registration request for the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function register(Request $request)
+    {
+        if (!\Config::get('custom.registable')) {
+            session()->flash('message', trans('custom.register_closed'));
+            return redirect(route('login'));
+        }
+        return Parent::register($request);
+    }
 }
