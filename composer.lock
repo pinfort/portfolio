@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "507ef4e7ce5fc87211f822793492c4fa",
+    "content-hash": "53d7889b25f27f59acdf70447e505f16",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -966,16 +966,16 @@
         },
         {
             "name": "pinfort/laravel-topnav",
-            "version": "0.0.3",
+            "version": "0.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pinfort/laravel-topnav.git",
-                "reference": "9fc37d99f6f05c97decf1f8723cbf3a29753e0c8"
+                "reference": "e02d7998454b3a14cafe68724a37f868a861abb1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pinfort/laravel-topnav/zipball/9fc37d99f6f05c97decf1f8723cbf3a29753e0c8",
-                "reference": "9fc37d99f6f05c97decf1f8723cbf3a29753e0c8",
+                "url": "https://api.github.com/repos/pinfort/laravel-topnav/zipball/e02d7998454b3a14cafe68724a37f868a861abb1",
+                "reference": "e02d7998454b3a14cafe68724a37f868a861abb1",
                 "shasum": ""
             },
             "require": {
@@ -1014,7 +1014,7 @@
                 "menu",
                 "navigation"
             ],
-            "time": "2018-01-01T17:02:24+00:00"
+            "time": "2018-02-27T13:29:13+00:00"
         },
         {
             "name": "psr/container",
