@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "bf3c948f982e4ea5ec2fcaef27270719",
+    "content-hash": "24a7845bf4c64499fe104effc1fac817",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -963,6 +963,58 @@
                 "random"
             ],
             "time": "2017-09-27T21:40:39+00:00"
+        },
+        {
+            "name": "pinfort/laravel-topnav",
+            "version": "0.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pinfort/laravel-topnav.git",
+                "reference": "9fc37d99f6f05c97decf1f8723cbf3a29753e0c8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pinfort/laravel-topnav/zipball/9fc37d99f6f05c97decf1f8723cbf3a29753e0c8",
+                "reference": "9fc37d99f6f05c97decf1f8723cbf3a29753e0c8",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": ">=4.0",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Pinfort\\LaravelTopNav\\TopNavServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Pinfort\\LaravelTopNav\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "src/"
+            ],
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "pinfort",
+                    "email": "ptg@nijitei.com"
+                }
+            ],
+            "description": "Create simple top navigation for laravel",
+            "keywords": [
+                "laravel",
+                "menu",
+                "navigation"
+            ],
+            "time": "2018-01-01T17:02:24+00:00"
         },
         {
             "name": "psr/container",
