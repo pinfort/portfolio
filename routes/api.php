@@ -15,10 +15,12 @@ use Illuminate\Http\Request;
 
 Route::middleware(['auth:api'])->group(
     function () {
-        Route::post('/services', 'Api\ServicesController@store');
         Route::post('/accounts', 'Api\AccountsController@store');
+        Route::post('/services', 'Api\ServicesController@store');
+        Route::post('/licenses', 'Api\LicensesController@store');
     }
 );
 
 Route::get('/accounts', 'Api\AccountsController@index')->name('api.accounts');
 Route::get('/services', 'Api\ServicesController@index')->name('api.services');
+Route::get('/licenses', 'Api\LicensesController@index')->name('api.licenses');
