@@ -16,8 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware(['auth:api'])->group(
     function () {
         Route::post('/services', 'Api\ServicesController@store');
+        Route::post('/accounts', 'Api\AccountsController@store');
     }
 );
 
-Route::get('/accounts', 'Api\AccountsController@index');
+Route::get('/accounts', 'Api\AccountsController@index')->name('api.accounts');
 Route::get('/services', 'Api\ServicesController@index')->name('api.services');
