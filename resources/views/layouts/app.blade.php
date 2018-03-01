@@ -12,7 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-    <link href="{{ mix('vendor/TopNav/top_nav.css') }}" rel="stylesheet">
+    <link href="{{ public_path('vendor/TopNav/top_nav.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
