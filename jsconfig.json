@@ -5,7 +5,7 @@
       "paths": {
         "@": [
           "@",
-          "resources/smigrator"
+          "resources/assets/js"
         ]
       },
       "target": "es6",
