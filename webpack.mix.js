@@ -15,12 +15,12 @@ mix.webpackConfig({
     resolve: {
         extensions: ['.js'],
         alias: {
-            '@': __dirname + '/resources/assets/js', // @で指定ディレクトリにアクセスできる
+            'src': __dirname + '/resources/assets/js', // srcで指定ディレクトリにアクセスできる
         },
-    }
-   })
-   .react('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+    },
+})
+    .react('resources/assets/js/app.js', 'public/js')
+    .sass('resources/assets/sass/app.scss', 'public/css');
 
 if (mix.inProduction()) {
     mix.version();
