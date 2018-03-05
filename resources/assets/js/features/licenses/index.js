@@ -8,15 +8,12 @@ export default class Licenses extends React.Component {
     static propTypes = {
         table: PropTypes.arrayOf(
             PropTypes.objectOf(
-                PropTypes.oneOftype([
-                    PropTypes.string,
-                    PropTypes.number,
-                ])
+                PropTypes.string,
             )
         ),
     }
 
-    static thead = List.of(
+    thead = List.of(
         List.of(
             Map({ 'isTitle': true, 'isLink': false, 'txt': '取得年月' }),
             Map({ 'isTitle': true, 'isLink': false, 'txt': '資格' }),
@@ -31,10 +28,8 @@ export default class Licenses extends React.Component {
 
             // <1カラム目: 取得年月>
             const get_at = row.get_at;
-            let get_year = get_at;
-            get_year.slice(0, -2);
-            let get_month = get_at;
-            get_month.slice(-2);
+            const get_year = get_at.slice(0, -2);
+            const get_month = get_at.slice(-2);
             const get_at_str = get_year + '/' + get_month;
             const get_at_obj = { 'isTitle': false, 'isLink': false, 'txt': get_at_str };
             formatted_row.push(get_at_obj);
