@@ -4,6 +4,10 @@ import {
     refreshLicenses,
 } from 'src/actions/licenses';
 
+const mapStateToProps = state => ({
+    table: state.getIn(['licenses', 'table']),
+});
+
 const mapDispatchToProps = dispatch => ({
 
     onRefresh () {
@@ -13,5 +17,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(
+    mapStateToProps,
     mapDispatchToProps,
 )(Licenses);
