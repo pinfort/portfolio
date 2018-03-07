@@ -3,17 +3,15 @@ import {
     LICENSES_REFRESH_SUCCESS,
     LICENSES_REFRESH_FAIL,
 } from 'src/actions/licenses';
+import { Map, fromJS } from 'immutable';
 
 function normalizeLicenses(state, licenseList) {
-    licenseList = { ...licenseList };
-
-    return state
-        .set('table', licenseList);
+    return state.set('table', fromJS(licenseList));
 }
 
-const initialState = {
+const initialState = Map({
     table: null,
-};
+});
 
 export default function licenses(state = initialState, action) {
     switch (action.type) {
