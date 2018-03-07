@@ -14,7 +14,7 @@ export default class Licenses extends React.Component {
     }
 
     componentWillMount() {
-        if ( typeof this.props.table.size === 'undefined' ) {
+        if ( this.props.table === null ) {
             this.props.onRefresh();
         }
     }
