@@ -24,10 +24,10 @@ export function refreshLicensesRequest() {
     };
 }
 
-export function refreshLicensesSuccess(LicensesList) {
+export function refreshLicensesSuccess(LicenseList) {
     return {
         type: LICENSES_REFRESH_SUCCESS,
-        LicensesList,
+        LicenseList,
     };
 }
 
