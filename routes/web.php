@@ -27,10 +27,20 @@ Route::group(
 
 // JSから読めるようにするものリスト
 Route::group(
-    ['laroute' => false],
+    ['laroute' => true],
     function () {
         Route::get('/home', function () {
             return view('index');
         })->name('home');
+
+        // JSから読めるもので認証が必要
+        Route::group(
+            ['middleware' => 'auth'],
+            function () {
+                Route::get('/admin', function () {
+                    return view('index');
+                })->name('admin');
+            }
+        );
     }
 );
