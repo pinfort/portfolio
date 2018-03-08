@@ -18,9 +18,13 @@ Route::middleware(['auth:api'])->group(
         Route::post('/accounts', 'Api\AccountsController@store');
         Route::post('/services', 'Api\ServicesController@store');
         Route::post('/licenses', 'Api\LicensesController@store');
+        Route::post('/skills', 'Api\SkillsController@store');
+        Route::post('/skills/categories', 'Api\SkillCategoriesController@store');
     }
 );
 
 Route::get('/accounts', 'Api\AccountsController@index')->name('api.accounts');
 Route::get('/services', 'Api\ServicesController@index')->name('api.services');
 Route::get('/licenses', 'Api\LicensesController@index')->name('api.licenses');
+Route::get('/skills', 'Api\SkillsController@index')->name('api.skills');
+Route::get('/skills/categories', 'Api\SkillCategoriesController@index')->name('api.skill_categories');
