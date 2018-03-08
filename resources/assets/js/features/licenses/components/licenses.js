@@ -2,7 +2,6 @@ import React from 'react';
 import { List, Map, fromJS } from 'immutable';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import SimpleTable from 'src/components/table/simple_table';
-import SimpleList from 'src/components/list/simple_list';
 
 export default class Licenses extends React.Component {
 
@@ -63,15 +62,12 @@ export default class Licenses extends React.Component {
         tbody = fromJS(tbody); // to immutable
 
         return (
-            <SimpleList
-                list_id={'licenses_list'}
-                contents={
-                    List([
-                        'Licenses',
-                        <SimpleTable tid='licenses_table' tclass='table table-hover' thead={this.thead} tbody={tbody} />,
-                    ])
-                }
-            />
+            <div className='card m-3'>
+                <div className='card-header'>Licenses</div>
+                <div className='card-body'>
+                    <SimpleTable tid='licenses_table' tclass='table table-hover' thead={this.thead} tbody={tbody} />
+                </div>
+            </div>
         );
     }
 
