@@ -6,7 +6,7 @@ export default class AdvancedColumn extends React.Component {
 
     static propTypes = {
         k: PropTypes.string.isRequired,
-        content: ImmutablePropTypes.any.isRequired,
+        content: PropTypes.any.isRequired,
     }
 
     render () {
