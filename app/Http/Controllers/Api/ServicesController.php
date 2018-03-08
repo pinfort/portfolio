@@ -23,6 +23,6 @@ class ServicesController extends Controller
         $icon_path = $request->file('icon')->store('services');
         $validatedData['icon_path'] = $icon_path;
         Service::create($validatedData);
-        return redirect()->route('api.services');
+        return redirect()->route('home');
     }
 }

@@ -20,6 +20,6 @@ class LicensesController extends Controller
             'get_at' => 'required|date_format:Ym',
         ]);
         License::create($validatedData);
-        return redirect()->route('api.licenses');
+        return redirect()->route('home');
     }
 }

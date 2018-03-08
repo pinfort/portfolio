@@ -20,6 +20,6 @@ class SkillCategoriesController extends Controller
         ]);
 
         SkillCategory::create($validatedData);
-        return redirect()->route('api.skill_categories');
+        return redirect()->route('home');
     }
 }

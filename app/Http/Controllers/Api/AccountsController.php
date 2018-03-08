@@ -22,6 +22,6 @@ class AccountsController extends Controller
             'description' => 'string',
         ]);
         Account::create($validatedData);
-        return redirect()->route('api.accounts');
+        return redirect()->route('home');
     }
 }

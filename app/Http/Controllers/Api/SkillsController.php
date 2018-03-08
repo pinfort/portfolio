@@ -23,6 +23,6 @@ class SkillsController extends Controller
         ]);
 
         Skill::create($validatedData);
-        return redirect()->route('api.skills');
+        return redirect()->route('home');
     }
 }
