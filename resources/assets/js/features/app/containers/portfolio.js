@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { List, Map } from 'immutable';
 import { Provider } from 'react-redux';
 import Licenses from 'src/features/licenses';
+import Skills from 'src/features/skills';
 import configureStore from 'src/store/configureStore';
 
 export const store = configureStore();
@@ -14,13 +14,8 @@ export default class Portfolio extends Component {
                 <div className='container'>
                     <div className='row justify-content-center'>
                         <div className='col-md-8'>
-                            <div className='card'>
-                                <div className='card-header'>Example Component</div>
-
-                                <div className='card-body'>
-                                    <Licenses />
-                                </div>
-                            </div>
+                            <Skills />
+                            <Licenses />
                         </div>
                     </div>
                 </div>
