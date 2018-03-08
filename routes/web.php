@@ -40,6 +40,9 @@ Route::group(
                 Route::get('/admin', function () {
                     return view('index');
                 })->name('admin');
+                Route::get('/admin/licenses', function () {
+                    return view('index');
+                })->name('admin_licenses');
             }
         );
     }
