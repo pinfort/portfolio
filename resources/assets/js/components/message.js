@@ -29,7 +29,7 @@ export default class Message extends React.Component {
                   </div>
 
                   <IconButton
-                      className='message__close-button'
+                      className='message__close-button btn btn-light'
                       icon='fa fa-times'
                       title='Dissmiss this message'
                       onClick={this.props.onClose}
