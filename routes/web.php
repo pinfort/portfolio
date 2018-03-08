@@ -25,6 +25,12 @@ Route::group(
     }
 );
 
-Route::get('/{any?}', function () {
-    return view('index');
-})->where('any', '.*');
+// JSから読めるようにするものリスト
+Route::group(
+    ['laroute' => false],
+    function () {
+        Route::get('/home', function () {
+            return view('index');
+        })->name('home');
+    }
+);
