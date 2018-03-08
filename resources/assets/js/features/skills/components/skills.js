@@ -51,6 +51,7 @@ export default class Skills extends React.Component {
                 categories[category_name].push(formatted_row);
             });
 
+            // 何もない時に表示するやつ
             if (content.size === 0) {
                 categories.nothing = [];
                 categories.nothing.push([

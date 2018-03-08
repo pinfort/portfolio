@@ -51,6 +51,7 @@ export default class Licenses extends React.Component {
                 tbody.push(formatted_row);
             });
 
+            // 何もない時に表示するやつ
             if (table.size === 0) {
                 tbody.push([
                     { 'isTitle': false, 'isLink': false, 'txt': '*/*' },
