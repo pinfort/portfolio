@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 export default class SimpleTxt extends React.Component {
 
     static propTypes = {
-        k: PropTypes.number.isRequired,
+        k: PropTypes.string.isRequired,
         col: ImmutablePropTypes.map.isRequired,
     }
 
