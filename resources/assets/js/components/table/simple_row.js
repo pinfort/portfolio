@@ -17,11 +17,11 @@ export default class SimpleRow extends React.Component {
 
         return (
             <tr key={k + '_row_' + row_number}>
-                {row.map((col, k) => {
+                {row.map((col, i) => {
                     if (col.isTitle) {
-                        return <SimpleTitle key={k + '_simple_title'} k={k} col={col} />;
+                        return <SimpleTitle key={k + '_simple_title_' + i} k={k + '_simple_title_th_' + i} col={col} />;
                     } else {
-                        return <SimpleTxt key={k + '_simple_txt'} k={k} col={col} />;
+                        return <SimpleTxt key={k + '_simple_txt_' + i} k={k + '_simple_txt_td_' + i} col={col} />;
                     }
                 })}
             </tr>

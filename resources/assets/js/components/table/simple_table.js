@@ -17,7 +17,7 @@ export default class SimpleTable extends React.Component {
         const { tid, tclass, thead, tbody } = this.props;
 
         return (
-            <table key={tid} className={tclass || ''}>
+            <table id={tid} key={tid} className={tclass || ''}>
                 <SimpleThead tid={tid} thead={thead} />
                 <SimpleTbody tid={tid} tbody={tbody} />
             </table>
