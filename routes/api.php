@@ -28,3 +28,8 @@ Route::get('/services', 'Api\ServicesController@index')->name('api.services');
 Route::get('/licenses', 'Api\LicensesController@index')->name('api.licenses');
 Route::get('/skills', 'Api\SkillsController@index')->name('api.skills');
 Route::get('/skills/categories', 'Api\SkillCategoriesController@index')->name('api.skill_categories');
+
+// 上記にマッチしないものは404を返す
+Route::get('/{any?}', function () {
+    abort(404);
+})->where('any', '.*');
