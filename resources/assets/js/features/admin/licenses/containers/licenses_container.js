@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import Licenses from '../components/licenses';
 import {
     refreshLicenses,
-} from 'src/actions/admin/licenses';
+} from 'src/actions/admin_licenses';
 
 const mapStateToProps = state => ({
     table: state.getIn(['admin_licenses', 'table']),
