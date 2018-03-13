@@ -20,13 +20,13 @@ class LicensesController extends Controller
             'get_at' => 'required|date_format:Ym',
         ]);
         License::create($validatedData);
-        return redirect()->route('home');
+        return redirect()->route('admin_licenses');
     }
 
     public function destroy(Request $request, $id)
     {
         $license = License::find($id);
         $license->delete();
-        return redirect()->route('home');
+        return redirect()->route('admin_licenses');
     }
 }
