@@ -2,6 +2,7 @@ import React from 'react';
 import { List, Map, fromJS } from 'immutable';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import AdvancedBodyTable from 'src/components/table/advanced_body_table';
+import apiToken from 'src/components/api_token';
 
 export default class Licenses extends React.Component {
 
@@ -59,7 +60,7 @@ export default class Licenses extends React.Component {
                 // <3カラム目: 削除ボタン>
                 const del_btn = {
                     type: 'form',
-                    action: '/api/licenses',
+                    action: '/api/licenses/' + row.get('id'),
                     method: 'post',
                     className: '',
                     contents: [
@@ -74,8 +75,8 @@ export default class Licenses extends React.Component {
                             type: 'input',
                             partsType: 'hidden',
                             className: '',
-                            name: 'id',
-                            value: row.get('id'),
+                            name: 'api_token',
+                            value: apiToken,
                         },
                         {
                             type: 'button',
@@ -98,9 +99,21 @@ export default class Licenses extends React.Component {
             // 何もない時に表示するやつ
             if (table.size === 0) {
                 tbody.push([
-                    '*/*',
-                    'None',
-                    'x',
+                    {
+                        type: 'txt',
+                        isLink: false,
+                        txt: '*/*',
+                    },
+                    {
+                        type: 'txt',
+                        isLink: false,
+                        txt: 'None',
+                    },
+                    {
+                        type: 'txt',
+                        isLink: false,
+                        txt: 'x',
+                    },
                 ]);
             }
         }
