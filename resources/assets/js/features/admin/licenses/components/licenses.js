@@ -37,24 +37,58 @@ export default class Licenses extends React.Component {
                 const get_year = get_at.slice(0, -2);
                 const get_month = get_at.slice(-2);
                 const get_at_str = get_year + '/' + get_month;
-                formatted_row.push(get_at_str);
+                const get_at_obj = {
+                    type: 'txt',
+                    isLink: false,
+                    txt: get_at_str,
+                };
+                formatted_row.push(get_at_obj);
                 // </1カラム目: 取得年月>
 
                 // <2カラム目: 資格名>
                 // TODO: リンク追加可能にする
                 const name = row.get('name');
-                formatted_row.push(name);
+                const name_obj = {
+                    type: 'txt',
+                    isLink: false,
+                    txt: name,
+                };
+                formatted_row.push(name_obj);
                 // </2カラム目: 資格名>
 
                 // <3カラム目: 削除ボタン>
-                const del_btn = (<form action='/api/licenses' method='post'>
-                    <input type='hidden' name='_method' value='DELETE' />
-                    <input type='hidden' name='id' value={row.get('id')} />
-                    <button type='submit' className='btn btn-light'>
-                        <i className='fa fa-times' aria-hidden='true' />
-                    </button>
-                </form>);
-                tbody.push(del_btn);
+                const del_btn = {
+                    type: 'form',
+                    action: '/api/licenses',
+                    method: 'post',
+                    className: '',
+                    contents: [
+                        {
+                            type: 'input',
+                            partsType: 'hidden',
+                            className: '',
+                            name: '_method',
+                            value: 'DELETE',
+                        },
+                        {
+                            type: 'input',
+                            partsType: 'hidden',
+                            className: '',
+                            name: 'id',
+                            value: row.get('id'),
+                        },
+                        {
+                            type: 'button',
+                            partsType: 'submit',
+                            className: 'btn btn-light',
+                            children: {
+                                type: 'font_awesome',
+                                className: 'fa fa-times',
+                            },
+                        },
+                    ],
+                };
+                formatted_row.push(del_btn);
                 // </3カラム目: 削除ボタン>
 
                 // 行を追加
@@ -70,7 +104,6 @@ export default class Licenses extends React.Component {
                 ]);
             }
         }
-
         tbody = fromJS(tbody); // to immutable
 
         return (
