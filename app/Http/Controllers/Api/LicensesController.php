@@ -22,4 +22,11 @@ class LicensesController extends Controller
         License::create($validatedData);
         return redirect()->route('home');
     }
+
+    public function destroy(Request $request, $id)
+    {
+        $license = License::find($id);
+        $license->delete();
+        return redirect()->route('home');
+    }
 }

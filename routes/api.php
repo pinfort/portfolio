@@ -20,6 +20,8 @@ Route::middleware(['auth:api'])->group(
         Route::post('/licenses', 'Api\LicensesController@store');
         Route::post('/skills', 'Api\SkillsController@store');
         Route::post('/skills/categories', 'Api\SkillCategoriesController@store');
+
+        Route::delete('/licenses/{id}', 'Api\LicensesController@destroy');
     }
 );
 
