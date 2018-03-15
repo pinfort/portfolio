@@ -10,11 +10,18 @@ export default class SimpleButton extends React.Component {
         children: ImmutablePropTypes.map.isRequired,
     }
 
+    constructor() {
+        super();
+        this.onClick = this.onClick.bind(this);
+    }
+
+    onClick(event) {}
+
     render () {
         const { k, content, children } = this.props;
 
         return (
-            <button key={k} type={content.get('partsType')} className={content.get('className')}>
+            <button key={k} type={content.get('partsType')} className={content.get('className')} onClick={this.onClick}>
                 {(() => {
                     if (children.get('type') === 'text') {
                         return children.get('txt');
