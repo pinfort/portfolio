@@ -75,3 +75,48 @@ export function deleteLicenseFail(error) {
         error,
     };
 }
+
+export const ADMIN_LICENSE_ADD_REQUEST = 'ADMIN_LICENSE_ADD_REQUEST';
+export const ADMIN_LICENSE_ADD_SUCCESS = 'ADMIN_LICENSE_ADD_SUCCESS';
+export const ADMIN_LICENSE_ADD_FAIL    = 'ADMIN_LICENSE_ADD_FAIL';
+
+export function addLicense(data) {
+    return (dispatch, getState) => {
+        dispatch(addLicenseRequest());
+
+        let params = new URLSearchParams();
+
+        for(let k of Object.keys(data)) {
+            params.append(k, data[k]);
+        }
+
+        api(getState).post(
+            '/api/licenses/',
+            params,
+        ).then(response => {
+            dispatch(addLicenseSuccess(response.data.data.license));
+        }).catch(error => {
+            dispatch(addLicenseFail(error));
+        });
+    };
+}
+
+export function addLicenseRequest() {
+    return {
+        type: ADMIN_LICENSE_ADD_REQUEST,
+    };
+}
+
+export function addLicenseSuccess(addedLicense) {
+    return {
+        type: ADMIN_LICENSE_ADD_SUCCESS,
+        addedLicense,
+    };
+}
+
+export function addLicenseFail(error) {
+    return {
+        type: ADMIN_LICENSE_ADD_FAIL,
+        error,
+    };
+}
