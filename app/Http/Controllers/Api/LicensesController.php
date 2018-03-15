@@ -27,6 +27,12 @@ class LicensesController extends Controller
     {
         $license = License::find($id);
         $license->delete();
-        return redirect()->route('admin_licenses');
+        $data = [
+            'status' => 200,
+            'data' => [
+                'id' => (int)$id,
+            ],
+        ];
+        return response()->json($data);
     }
 }
