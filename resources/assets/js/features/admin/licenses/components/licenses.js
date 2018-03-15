@@ -1,8 +1,7 @@
 import React from 'react';
 import { List, Map, fromJS } from 'immutable';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import AdvancedBodyTable from 'src/components/table/advanced_body_table';
-import apiToken from 'src/components/api_token';
+import LicensesTable from './table/licenses_table';
 
 export default class Licenses extends React.Component {
 
@@ -59,35 +58,13 @@ export default class Licenses extends React.Component {
 
                 // <3カラム目: 削除ボタン>
                 const del_btn = {
-                    type: 'form',
-                    action: '/api/licenses/' + row.get('id'),
-                    method: 'post',
-                    className: '',
-                    contents: [
-                        {
-                            type: 'input',
-                            partsType: 'hidden',
-                            className: '',
-                            name: '_method',
-                            value: 'DELETE',
-                        },
-                        {
-                            type: 'input',
-                            partsType: 'hidden',
-                            className: '',
-                            name: 'api_token',
-                            value: apiToken,
-                        },
-                        {
-                            type: 'button',
-                            partsType: 'submit',
-                            className: 'btn btn-light',
-                            children: {
-                                type: 'font_awesome',
-                                className: 'fa fa-times',
-                            },
-                        },
-                    ],
+                    type: 'button',
+                    className: 'btn btn-light',
+                    children: {
+                        type: 'font_awesome',
+                        className: 'fa fa-times',
+                    },
+                    target_id: row.get('id'),
                 };
                 formatted_row.push(del_btn);
                 // </3カラム目: 削除ボタン>
@@ -123,7 +100,7 @@ export default class Licenses extends React.Component {
             <div className='card m-3'>
                 <div className='card-header'>Licenses</div>
                 <div className='card-body'>
-                    <AdvancedBodyTable tid='licenses_table' tclass='table table-hover' thead={this.thead} tbody={tbody} />
+                    <LicensesTable tid='licenses_table' tclass='table table-hover' thead={this.thead} tbody={tbody} />
                 </div>
             </div>
         );
