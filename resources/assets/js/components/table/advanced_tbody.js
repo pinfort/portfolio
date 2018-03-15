@@ -10,13 +10,17 @@ export default class AdvancedTbody extends React.Component {
         tbody: ImmutablePropTypes.list.isRequired,
     }
 
+    createRow(row, i, tid) {
+        return <AdvancedRow key={tid + '_body_advanced_row' + i} k={tid + '_body'} row={row} row_number={i} />;
+    }
+
     render () {
         const { tid, tbody } = this.props;
 
         return (
             <tbody key={tid + '_body'}>
                 {tbody.map((row, i) =>
-                    <AdvancedRow key={tid + '_body_advanced_row' + i} k={tid + '_body'} row={row} row_number={i} />
+                    this.createRow(row, i, tid)
                 )}
             </tbody>
         );

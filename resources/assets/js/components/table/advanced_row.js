@@ -11,14 +11,18 @@ export default class AdvancedRow extends React.Component {
         row: ImmutablePropTypes.list.isRequired,
     }
 
+    createColumn(col, i, k) {
+        return <AdvancedColumn key={k + '_advanced_column_' + i} k={k + '_advanced_column_td_' + i} content={col} />;
+    }
+
     render () {
         const { k, row_number, row } = this.props;
 
         return (
             <tr key={k + '_row_' + row_number}>
-                {row.map((col, i) => {
-                    return <AdvancedColumn key={k + '_advanced_column_' + i} k={k + '_advanced_column_td_' + i} content={col} />;
-                })}
+                {row.map((col, i) =>
+                    this.createColumn(col, i, k)
+                )}
             </tr>
         );
     }
