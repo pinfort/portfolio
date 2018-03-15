@@ -37,3 +37,41 @@ export function refreshLicensesFail(error) {
         error,
     };
 }
+
+export const ADMIN_LICENSE_DELETE_REQUEST = 'ADMIN_LICENSE_DELETE_REQUEST';
+export const ADMIN_LICENSE_DELETE_SUCCESS = 'ADMIN_LICENSE_DELETE_SUCCESS';
+export const ADMIN_LICENSE_DELETE_FAIL    = 'ADMIN_LICENSE_DELETE_FAIL';
+
+export function deleteLicense(id) {
+    return (dispatch, getState) => {
+        dispatch(deleteLicenseRequest());
+
+        api(getState).delete(
+            '/api/licenses/' + id,
+        ).then(response => {
+            dispatch(deleteLicenseSuccess(response.data.data.id));
+        }).catch(error => {
+            dispatch(deleteLicenseFail(error));
+        });
+    };
+}
+
+export function deleteLicenseRequest() {
+    return {
+        type: ADMIN_LICENSE_DELETE_REQUEST,
+    };
+}
+
+export function deleteLicenseSuccess(deletedLicenseId) {
+    return {
+        type: ADMIN_LICENSE_DELETE_SUCCESS,
+        deletedLicenseId,
+    };
+}
+
+export function deleteLicenseFail(error) {
+    return {
+        type: ADMIN_LICENSE_DELETE_FAIL,
+        error,
+    };
+}
