@@ -6,7 +6,7 @@ import {
 } from 'src/actions/admin_licenses';
 
 const mapStateToProps = state => ({
-    table: state.getIn(['admin_licenses', 'table']),
+    licenses: state.getIn(['admin_licenses', 'licenses']),
 });
 
 const mapDispatchToProps = dispatch => ({

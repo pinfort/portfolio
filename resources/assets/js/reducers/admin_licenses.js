@@ -12,28 +12,28 @@ import {
 import { Map, fromJS } from 'immutable';
 
 function normalizeLicenses(state, licenseList) {
-    return state.set('table', fromJS(licenseList));
+    return state.set('licenses', fromJS(licenseList));
 }
 
 function deleteLicense(state, licenseId) {
     let newState = [];
-    state.get('table').map((license) => {
+    state.get('licenses').map((license) => {
 
         if (license.get('id') !== licenseId) {
             newState.push(license);
         }
     });
-    return state.set('table', fromJS(newState));
+    return state.set('licenses', fromJS(newState));
 }
 
 function addLicense(state, license) {
-    let newState = state.get('table').toJS();
+    let newState = state.get('licenses').toJS();
     newState.push(license);
-    return state.set('table', fromJS(newState));
+    return state.set('licenses', fromJS(newState));
 }
 
 const initialState = Map({
-    table: null,
+    licenses: null,
 });
 
 export default function admin_licenses(state = initialState, action) {
