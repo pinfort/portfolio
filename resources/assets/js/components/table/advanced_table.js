@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import SimpleThead from './simple_thead';
 import AdvancedTbody from './advanced_tbody';
 
-export default class AdvancedBodyTable extends React.Component {
+export default class AdvancedTable extends React.Component {
 
     static propTypes = {
         tid: PropTypes.string.isRequired,
@@ -13,13 +13,21 @@ export default class AdvancedBodyTable extends React.Component {
         tbody: ImmutablePropTypes.list.isRequired,
     }
 
+    createThead(tid, content) {
+        return <SimpleThead tid={tid} thead={content} />;
+    }
+
+    createTbody(tid, content) {
+        return <AdvancedTbody tid={tid} tbody={content} />;
+    }
+
     render () {
         const { tid, tclass, thead, tbody } = this.props;
 
         return (
             <table id={tid} key={tid} className={tclass || ''}>
-                <SimpleThead tid={tid} thead={thead} />
-                <AdvancedTbody tid={tid} tbody={tbody} />
+                {this.createThead(tid, thead)}
+                {this.createTbody(tid, tbody)}
             </table>
         );
     }
