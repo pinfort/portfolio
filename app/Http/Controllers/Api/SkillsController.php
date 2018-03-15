@@ -25,4 +25,17 @@ class SkillsController extends Controller
         Skill::create($validatedData);
         return redirect()->route('home');
     }
+
+    public function destroy(Request $request, $id)
+    {
+        $skill = Skill::find($id);
+        $skill->delete();
+        $data = [
+            'status' => 200,
+            'data' => [
+                'id' => (int)$id,
+            ],
+        ];
+        return response()->json($data);
+    }
 }
