@@ -43,6 +43,9 @@ Route::group(
                 Route::get('/admin/licenses', function () {
                     return view('index');
                 })->name('admin_licenses');
+                Route::get('/admin/skills', function () {
+                    return view('index');
+                })->name('admin_skills');
             }
         );
     }
