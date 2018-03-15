@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import Licenses from '../components/licenses';
 import {
     refreshLicenses,
+    deleteLicense,
 } from 'src/actions/admin_licenses';
 
 const mapStateToProps = state => ({
@@ -12,6 +13,10 @@ const mapDispatchToProps = dispatch => ({
 
     onRefresh () {
         dispatch(refreshLicenses());
+    },
+
+    onDelete (id) {
+        dispatch(deleteLicense(id));
     },
 
 });
