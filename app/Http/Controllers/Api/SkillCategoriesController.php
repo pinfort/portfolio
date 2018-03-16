@@ -19,7 +19,26 @@ class SkillCategoriesController extends Controller
             'name' => 'required|string|max:255',
         ]);
 
-        SkillCategory::create($validatedData);
-        return redirect()->route('home');
+        $created = SkillCategory::create($validatedData);
+        $data = [
+            'status' => 200,
+            'data' => [
+                'skill_category' => $created,
+            ],
+        ];
+        return response()->json($data);
+    }
+
+    public function destroy(Request $request, $id)
+    {
+        $skill_category = SkillCategory::find($id);
+        $skill_category->delete();
+        $data = [
+            'status' => 200,
+            'data' => [
+                'id' => (int)$id,
+            ],
+        ];
+        return response()->json($data);
     }
 }
