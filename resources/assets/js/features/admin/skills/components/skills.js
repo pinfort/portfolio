@@ -34,13 +34,13 @@ export default class Skills extends React.Component {
 
                 // <1カラム目: 名称>
                 const name = row.get('name');
-                const name_obj = { 'isTitle': false, 'isLink': false, 'txt': name };
+                const name_obj = { type: 'txt', 'isLink': false, 'txt': name };
                 formatted_row.push(name_obj);
                 // </1カラム目: 名称>
 
                 // <2カラム目: 程度>
                 const status = row.get('status');
-                const status_obj = { 'isTitle': false, 'isLink': false, 'txt': status };
+                const status_obj = { type: 'txt', 'isLink': false, 'txt': status };
                 formatted_row.push(status_obj);
                 // </2カラム目: 程度>
 
@@ -58,7 +58,7 @@ export default class Skills extends React.Component {
                 // </3カラム目: 削除ボタン>
 
                 // 該当するカテゴリに行を追加
-                let category_name = row.get('skills').get('name');
+                let category_name = row.get('skill_category').get('name');
                 if (categories[category_name] === undefined || categories[category_name] === null) {
                     categories[category_name] = [];
                 }
