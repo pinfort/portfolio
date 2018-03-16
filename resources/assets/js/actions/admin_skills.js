@@ -107,10 +107,10 @@ export function addSkillRequest() {
     };
 }
 
-export function addSkillSuccess(addedLicense) {
+export function addSkillSuccess(addedSkill) {
     return {
         type: ADMIN_SKILL_ADD_SUCCESS,
-        addedLicense,
+        addedSkill,
     };
 }
 
