@@ -5,7 +5,7 @@ import {
 } from 'src/actions/skills';
 
 const mapStateToProps = state => ({
-    content: state.getIn(['skills', 'content']),
+    skills: state.getIn(['skills', 'skills']),
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -7,12 +7,12 @@ import SimpleList from 'src/components/list/simple_list';
 export default class Skills extends React.Component {
 
     static propTypes = {
-        content: ImmutablePropTypes.list,
+        skills: ImmutablePropTypes.list,
         categories: ImmutablePropTypes.map,
     }
 
     componentWillMount() {
-        if ( this.props.content === null || this.props.content === undefined ) {
+        if ( this.props.skills === null || this.props.skills === undefined ) {
             this.props.onRefresh();
         }
     }
@@ -25,10 +25,10 @@ export default class Skills extends React.Component {
     );
 
     render() {
-        const { content } = this.props;
+        const { skills } = this.props;
         let categories = {};
-        if (content !== undefined && content !== null) {
-            content.map(row => {
+        if (skills !== undefined && skills !== null) {
+            skills.map(row => {
                 let formatted_row = [];
 
                 // <1カラム目: 名称>
@@ -44,7 +44,7 @@ export default class Skills extends React.Component {
                 // </2カラム目: 程度>
 
                 // 該当するカテゴリに行を追加
-                let category_name = row.get('skills').get('name');
+                let category_name = row.get('skill_category').get('name');
                 if (categories[category_name] === undefined || categories[category_name] === null) {
                     categories[category_name] = [];
                 }
@@ -52,7 +52,7 @@ export default class Skills extends React.Component {
             });
 
             // 何もない時に表示するやつ
-            if (content.size === 0) {
+            if (skills.size === 0) {
                 categories.nothing = [];
                 categories.nothing.push([
                     { 'isTitle': false, 'isLink': false, 'txt': 'None' },

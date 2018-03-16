@@ -6,11 +6,11 @@ import {
 import { Map, fromJS } from 'immutable';
 
 function normalizeSkills(state, skillList) {
-    return state.set('content', fromJS(skillList));
+    return state.set('skills', fromJS(skillList));
 }
 
 const initialState = Map({
-    content: null,
+    skills: null,
 });
 
 export default function skills(state = initialState, action) {
