@@ -12,7 +12,7 @@ export default class SkillsForm extends React.Component {
         super();
         this.state = {
             name: '',
-            skill_category_id: 0,
+            skill_category_id: '0',
             status: '',
         };
         this.handleChangeCategory = this.handleChangeCategory.bind(this);
@@ -46,23 +46,29 @@ export default class SkillsForm extends React.Component {
     }
 
     handleSubmit(event) {
+        event.preventDefault();
+        if (this.state.skill_category_id === '0') {
+            this.props.onError('please select category');
+            return;
+        }
         this.props.onSubmit(this.state);
         this.setState({
             name: '',
-            skill_category_id: 0,
+            skill_category_id: '0',
             status: '',
         });
-        event.preventDefault();
     }
 
     createCategories() {
         const { skill_category } = this.props;
+        let ret_categories = [];
         if ( this.props.skill_category === null || this.props.skill_category === undefined ) {
-            return;
+            return ret_categories;
         }
-        skill_category.map((skill_cat) => (
-            <option value={skill_cat.get('id')}>{skill_cat.get('name')}</option>
-        ));
+        skill_category.map((skill_cat) => {
+            ret_categories.push(<option key={skill_cat.get('id')} value={skill_cat.get('id')}>{skill_cat.get('name')}</option>);
+        });
+        return ret_categories;
     }
 
     render() {
@@ -80,8 +86,8 @@ export default class SkillsForm extends React.Component {
                         <div className='form-group row'>
                             <label htmlFor='skillCategory' className='col-sm-2 col-form-label'>スキルカテゴリ</label>
                             <div className='col-sm-10'>
-                                <select name='skill_category_id' className='form-control' id='skillCategory' value={this.state.skill_category_id} onBlur={this.handleChangeCategory}>
-                                    <option value='0'>select</option>
+                                <select name='skill_category_id' className='form-control' id='skillCategory' value={this.state.skill_category_id} onChange={this.handleChangeCategory} onBlur={this.handleChangeCategory}>
+                                    <option value='0'>選択してください</option>
                                     {this.createCategories()}
                                 </select>
                             </div>
