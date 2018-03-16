@@ -13,7 +13,7 @@ class Skill extends Model
         'status',
     ];
 
-    public function category()
+    public function skill_category()
     {
         return $this->belongsTo('App\SkillCategory');
     }
