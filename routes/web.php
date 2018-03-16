@@ -46,6 +46,9 @@ Route::group(
                 Route::get('/admin/skills', function () {
                     return view('index');
                 })->name('admin_skills');
+                Route::get('/admin/skills/categories', function () {
+                    return view('index');
+                })->name('admin_skill_categoires');
             }
         );
     }
