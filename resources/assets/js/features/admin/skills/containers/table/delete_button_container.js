@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import DeleteButton from '../../components/table/delete_button';
-import { deleteSkill } from 'src/actions/admin_skills';
+import { deleteSkillCategory } from 'src/actions/admin_skill_categories';
 
 const mapStateToProps = state => {
     return {};
@@ -9,7 +9,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
 
     onDelete (id) {
-        dispatch(deleteSkill(id));
+        dispatch(deleteSkillCategory(id));
     },
 
 });
