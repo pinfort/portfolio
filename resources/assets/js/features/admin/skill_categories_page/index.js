@@ -8,6 +8,9 @@ export default class SkillCategoriesPage extends React.Component {
         return (
             <div className='row justify-content-center'>
                 <div className='col-md-8'>
+                    <div class='alert alert-danger' role='alert'>
+                        <strong>Denger</strong> カテゴリを削除すると、そのカテゴリ内のスキルは削除されます！
+                    </div>
                     <SkillCategories />
                     <SkillCategoriesForm />
                 </div>
