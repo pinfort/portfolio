@@ -32,6 +32,12 @@ Route::group(
         Route::get('/home', function () {
             return view('index');
         })->name('home');
+        Route::get('/licenses', function () {
+            return view('index');
+        })->name('licenses');
+        Route::get('/skills', function () {
+            return view('index');
+        })->name('skills');
 
         // JSから読めるもので認証が必要
         Route::group(
