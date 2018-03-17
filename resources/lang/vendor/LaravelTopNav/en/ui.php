@@ -13,5 +13,8 @@ return [
         'logout' => 'Logout',
         'register' => 'Register',
         'accounts' => 'Accounts',
+        'admin' => 'Admin',
+        'skills' => 'Skills',
+        'licenses' => 'Licenses',
     ],
 ];

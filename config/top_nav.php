@@ -10,6 +10,11 @@ return [
     // nestable. attention max_depth setting.
     'menu' => [
         'top' => '/',
+        'home' => '/home',
+        'admin' => [
+            'skills' => '/admin/skills',
+            'licenses' => '/admin/licenses',
+        ],
         // 'nest_menu' => [
         //     'children' => '/children',
         // ],
