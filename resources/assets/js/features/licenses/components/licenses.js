@@ -6,11 +6,11 @@ import SimpleTable from 'src/components/table/simple_table';
 export default class Licenses extends React.Component {
 
     static propTypes = {
-        table: ImmutablePropTypes.list,
+        licenses: ImmutablePropTypes.list,
     }
 
     componentWillMount() {
-        if ( this.props.table === null || this.props.table === undefined ) {
+        if ( this.props.licenses === null || this.props.licenses === undefined ) {
             this.props.onRefresh();
         }
     }
@@ -23,12 +23,12 @@ export default class Licenses extends React.Component {
     );
 
     render() {
-        const { table } = this.props;
+        const { licenses } = this.props;
         let tbody = [];
-        if (table === undefined || table === null) {
+        if (licenses === undefined || licenses === null) {
             tbody.push([]);
         } else {
-            table.map(row => {
+            licenses.map(row => {
                 let formatted_row = [];
 
                 // <1カラム目: 取得年月>
@@ -52,7 +52,7 @@ export default class Licenses extends React.Component {
             });
 
             // 何もない時に表示するやつ
-            if (table.size === 0) {
+            if (licenses.size === 0) {
                 tbody.push([
                     { 'isTitle': false, 'isLink': false, 'txt': '*/*' },
                     { 'isTitle': false, 'isLink': false, 'txt': 'None' },

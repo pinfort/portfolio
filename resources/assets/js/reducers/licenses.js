@@ -6,11 +6,11 @@ import {
 import { Map, fromJS } from 'immutable';
 
 function normalizeLicenses(state, licenseList) {
-    return state.set('table', fromJS(licenseList));
+    return state.set('licenses', fromJS(licenseList));
 }
 
 const initialState = Map({
-    table: null,
+    licenses: null,
 });
 
 export default function licenses(state = initialState, action) {
