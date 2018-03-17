@@ -10,7 +10,7 @@ class SkillsController extends Controller
 {
     public function index(Request $request)
     {
-        return Skill::with('skill_category')->get();
+        return Skill::with('skill_category')->orderBy('name', 'ASC')->get();
     }
 
     public function store(Request $request)

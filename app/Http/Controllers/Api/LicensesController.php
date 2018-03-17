@@ -10,7 +10,7 @@ class LicensesController extends Controller
 {
     public function index(Request $request)
     {
-        return License::all();
+        return License::orderBy('get_at', 'DESC')->get();
     }
 
     public function store(Request $request)
