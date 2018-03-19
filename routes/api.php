@@ -20,10 +20,12 @@ Route::middleware(['auth:api'])->group(
         Route::post('/licenses', 'Api\LicensesController@store');
         Route::post('/skills', 'Api\SkillsController@store');
         Route::post('/skills/categories', 'Api\SkillCategoriesController@store');
+        Route::post('/works', 'Api\WorksController@store');
 
         Route::delete('/licenses/{id}', 'Api\LicensesController@destroy');
         Route::delete('/skills/{id}', 'Api\SkillsController@destroy');
         Route::delete('/skills/categories/{id}', 'Api\SkillCategoriesController@destroy');
+        Route::delete('/works/{id}', 'Api\WorksController@destroy');
     }
 );
 
@@ -32,3 +34,4 @@ Route::get('/services', 'Api\ServicesController@index')->name('api.services');
 Route::get('/licenses', 'Api\LicensesController@index')->name('api.licenses');
 Route::get('/skills', 'Api\SkillsController@index')->name('api.skills');
 Route::get('/skills/categories', 'Api\SkillCategoriesController@index')->name('api.skill_categories');
+Route::get('/works', 'Api\WorksController@index')->name('api.works');
