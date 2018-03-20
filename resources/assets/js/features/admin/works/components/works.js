@@ -20,6 +20,7 @@ export default class Works extends React.Component {
             Map({ 'isTitle': true, 'isLink': false, 'txt': '名称' }),
             Map({ 'isTitle': true, 'isLink': false, 'txt': 'URL' }),
             Map({ 'isTitle': true, 'isLink': false, 'txt': '説明' }),
+            Map({ 'isTitle': true, 'isLink': false, 'txt': 'タグ' }),
             Map({ 'isTitle': true, 'isLink': false, 'txt': '削除' }),
         )
     );
@@ -54,7 +55,17 @@ export default class Works extends React.Component {
                 formatted_row.push(description_obj);
                 // </3カラム目: 説明>
 
-                // <4カラム目: 削除ボタン>
+                // <4カラム目: タグ>
+                const tags = row.get('tags');
+                let tags_str = '';
+                tags.forEach((tag) => {
+                    tags_str += ' ' + tag.get('name');
+                });
+                const tags_obj = { type: 'txt', 'isLink': false, 'txt': tags_str.trim() };
+                formatted_row.push(tags_obj);
+                // </4カラム目: タグ>
+
+                // <5カラム目: 削除ボタン>
                 const del_btn = {
                     type: 'button',
                     className: 'btn btn-light',
@@ -65,7 +76,7 @@ export default class Works extends React.Component {
                     target_id: row.get('id'),
                 };
                 formatted_row.push(del_btn);
-                // </4カラム目: 削除ボタン>
+                // </5カラム目: 削除ボタン>
 
                 // 行を追加
                 tbody.push(formatted_row);
@@ -74,6 +85,7 @@ export default class Works extends React.Component {
             // 何もない時に表示するやつ
             if (works.size === 0) {
                 tbody.push([
+                    { type: 'txt', isLink: false, txt: 'None' },
                     { type: 'txt', isLink: false, txt: 'None' },
                     { type: 'txt', isLink: false, txt: 'None' },
                     { type: 'txt', isLink: false, txt: 'None' },
