@@ -20,6 +20,7 @@ export default class Works extends React.Component {
             Map({ 'isTitle': true, 'isLink': false, 'txt': '名称' }),
             Map({ 'isTitle': true, 'isLink': false, 'txt': 'URL' }),
             Map({ 'isTitle': true, 'isLink': false, 'txt': '説明' }),
+            Map({ 'isTitle': true, 'isLink': false, 'txt': 'タグ' }),
         )
     );
 
@@ -53,12 +54,23 @@ export default class Works extends React.Component {
                 formatted_row.push(description_obj);
                 // </3カラム目: 説明>
 
+                // <4カラム目: タグ>
+                const tags = row.get('tags');
+                let tags_str = '';
+                tags.forEach((tag) => {
+                    tags_str += ' ' + tag.get('name');
+                });
+                const tags_obj = { type: 'txt', 'isLink': false, 'txt': tags_str.trim() };
+                formatted_row.push(tags_obj);
+                // </4カラム目: タグ>
+
                 body.push(formatted_row);
             });
 
             // 何もない時に表示するやつ
             if (works.size === 0) {
                 body.push([
+                    { 'isTitle': false, 'isLink': false, 'txt': 'None' },
                     { 'isTitle': false, 'isLink': false, 'txt': 'None' },
                     { 'isTitle': false, 'isLink': false, 'txt': 'None' },
                     { 'isTitle': false, 'isLink': false, 'txt': 'None' },
