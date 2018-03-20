@@ -38,6 +38,9 @@ Route::group(
         Route::get('/skills', function () {
             return view('index');
         })->name('skills');
+        Route::get('/works', function () {
+            return view('index');
+        })->name('works');
 
         // JSから読めるもので認証が必要
         Route::group(
