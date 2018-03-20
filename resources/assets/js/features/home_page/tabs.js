@@ -12,6 +12,7 @@ export default class Tabs extends React.Component {
         { link: '/home', name: 'Home' },
         { link: '/skills', name: 'Skills' },
         { link: '/licenses', name: 'Licenses' },
+        { link: '/works', name:'Works' },
     ];
 
     createTabs () {
