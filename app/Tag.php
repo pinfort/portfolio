@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Work extends Model
+class Tag extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -12,11 +12,11 @@ class Work extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'description', 'url', 'source_url',
+        'name',
     ];
 
-    public function tags()
+    public function works()
     {
-        return $this->belongsToMany('App\Tag');
+        return $this->belongsToMany('App\Work');
     }
 }
