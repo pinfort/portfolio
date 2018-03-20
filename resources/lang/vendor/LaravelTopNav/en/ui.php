@@ -16,5 +16,6 @@ return [
         'admin' => 'Admin',
         'skills' => 'Skills',
         'licenses' => 'Licenses',
+        'works' => 'Works',
     ],
 ];
