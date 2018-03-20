@@ -8,11 +8,13 @@ export default class WorksForm extends React.Component {
             name: '',
             url: '',
             description: '',
+            tags: '',
         };
 
         this.handleChangeName = this.handleChangeName.bind(this);
         this.handleChangeUrl = this.handleChangeUrl.bind(this);
         this.handleChangeDescription = this.handleChangeDescription.bind(this);
+        this.handleChangeTags = this.handleChangeTags.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -34,6 +36,12 @@ export default class WorksForm extends React.Component {
         });
     }
 
+    handleChangeTags(event) {
+        this.setState({
+            tags: event.target.value,
+        });
+    }
+
     handleSubmit(event) {
         event.preventDefault();
         if (this.state.work_category_id === '0') {
@@ -45,6 +53,7 @@ export default class WorksForm extends React.Component {
             name: '',
             url: '',
             description: '',
+            tags: '',
         });
     }
 
@@ -69,7 +78,13 @@ export default class WorksForm extends React.Component {
                         <div className='form-group row'>
                             <label htmlFor='workDescription' className='col-sm-2 col-form-label'>説明</label>
                             <div className='col-sm-10'>
-                                <input type='text' name='description' className='form-control' id='workUrl' placeholder='description?' value={this.state.description} onChange={this.handleChangeDescription} />
+                                <input type='text' name='description' className='form-control' id='workDescription' placeholder='description?' value={this.state.description} onChange={this.handleChangeDescription} />
+                            </div>
+                        </div>
+                        <div className='form-group row'>
+                            <label htmlFor='workTags' className='col-sm-2 col-form-label'>タグ</label>
+                            <div className='col-sm-10'>
+                                <input type='text' name='tags' className='form-control' id='workTags' placeholder='tag? separated by space' value={this.state.tags} onChange={this.handleChangeTags} />
                             </div>
                         </div>
                         <div className='form-group row'>
