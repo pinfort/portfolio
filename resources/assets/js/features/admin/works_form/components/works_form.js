@@ -55,7 +55,7 @@ export default class WorksForm extends React.Component {
                 <div className='card-body'>
                     <form action='javascript:void(0)' onSubmit={this.handleSubmit}>
                         <div className='form-group row'>
-                            <label htmlFor='getWork' className='col-sm-2 col-form-label'>スキル名</label>
+                            <label htmlFor='getWork' className='col-sm-2 col-form-label'>プロダクト名</label>
                             <div className='col-sm-10'>
                                 <input type='text' name='name' className='form-control' id='getWork' placeholder='What?' value={this.state.name} onChange={this.handleChangeName} />
                             </div>
