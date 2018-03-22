@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Work;
 use App\Tag;
+use Storage;
 
 class WorksController extends Controller
 {
@@ -22,12 +23,18 @@ class WorksController extends Controller
             'url' => 'string|max:255',
             'source_url' => 'string|max:255',
             'tags' => 'string|max:255',
+            'image' => 'image',
         ]);
-
         $tags = str_replace('　', ' ', $validatedData['tags']);
         $tags = trim($tags);
         $tags = preg_replace('/\s+/', ' ', $tags);
         $tags = explode(' ', $tags);
+        try {
+            $path = $request->file('image')->store('works');
+        } catch (Exception $e) {
+            $path = 'works/000';
+        }
+        $validatedData['image_path'] = $path;
         $work = Work::create($validatedData);
         if (!($tags === '')) {
             $tag_ids = [];
