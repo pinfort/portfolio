@@ -9,8 +9,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
 
-    onSubmit (data) {
-        dispatch(addWork(data));
+    onSubmit (form) {
+        dispatch(addWork(form));
     },
 
     onError (text) {

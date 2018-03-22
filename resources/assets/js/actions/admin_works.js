@@ -80,19 +80,20 @@ export const ADMIN_WORK_ADD_REQUEST = 'ADMIN_WORK_ADD_REQUEST';
 export const ADMIN_WORK_ADD_SUCCESS = 'ADMIN_WORK_ADD_SUCCESS';
 export const ADMIN_WORK_ADD_FAIL    = 'ADMIN_WORK_ADD_FAIL';
 
-export function addWork(data) {
+export function addWork(form) {
     return (dispatch, getState) => {
         dispatch(addWorkRequest());
 
-        let params = new URLSearchParams();
-
-        for(let k of Object.keys(data)) {
-            params.append(k, data[k]);
-        }
+        let params = new FormData(form);
 
         api(getState).post(
             '/api/works/',
             params,
+            {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            }
         ).then(response => {
             dispatch(addWorkSuccess(response.data.data.work));
         }).catch(error => {

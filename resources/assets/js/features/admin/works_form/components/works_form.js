@@ -4,57 +4,17 @@ export default class WorksForm extends React.Component {
 
     constructor() {
         super();
-        this.state = {
-            name: '',
-            url: '',
-            description: '',
-            tags: '',
-        };
-
-        this.handleChangeName = this.handleChangeName.bind(this);
-        this.handleChangeUrl = this.handleChangeUrl.bind(this);
-        this.handleChangeDescription = this.handleChangeDescription.bind(this);
-        this.handleChangeTags = this.handleChangeTags.bind(this);
+        this.refForm = this.refForm.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChangeName(event) {
-        this.setState({
-            name: event.target.value,
-        });
-    }
-
-    handleChangeUrl(event) {
-        this.setState({
-            url: event.target.value,
-        });
-    }
-
-    handleChangeDescription(event) {
-        this.setState({
-            description: event.target.value,
-        });
-    }
-
-    handleChangeTags(event) {
-        this.setState({
-            tags: event.target.value,
-        });
+    refForm(c) {
+        this.form = c;
     }
 
     handleSubmit(event) {
         event.preventDefault();
-        if (this.state.work_category_id === '0') {
-            this.props.onError('please select category');
-            return;
-        }
-        this.props.onSubmit(this.state);
-        this.setState({
-            name: '',
-            url: '',
-            description: '',
-            tags: '',
-        });
+        this.props.onSubmit(this.form);
     }
 
     render() {
@@ -62,29 +22,35 @@ export default class WorksForm extends React.Component {
             <div className='card m-3'>
                 <div className='card-header'>Add Work</div>
                 <div className='card-body'>
-                    <form action='javascript:void(0)' onSubmit={this.handleSubmit}>
+                    <form action='javascript:void(0)' onSubmit={this.handleSubmit} ref={this.refForm}>
                         <div className='form-group row'>
                             <label htmlFor='getWork' className='col-sm-2 col-form-label'>プロダクト名</label>
                             <div className='col-sm-10'>
-                                <input type='text' name='name' className='form-control' id='getWork' placeholder='What?' value={this.state.name} onChange={this.handleChangeName} />
+                                <input type='text' name='name' className='form-control' id='getWork' placeholder='What?' />
                             </div>
                         </div>
                         <div className='form-group row'>
                             <label htmlFor='workUrl' className='col-sm-2 col-form-label'>URL</label>
                             <div className='col-sm-10'>
-                                <input type='text' name='url' className='form-control' id='workUrl' placeholder='URL is?' value={this.state.url} onChange={this.handleChangeUrl} />
+                                <input type='text' name='url' className='form-control' id='workUrl' placeholder='URL is?' />
+                            </div>
+                        </div>
+                        <div className='form-group row'>
+                            <label htmlFor='workImage' className='col-sm-2 col-form-label'>画像</label>
+                            <div className='col-sm-10'>
+                                <input type='file' name='image' className='form-control' id='workForm' />
                             </div>
                         </div>
                         <div className='form-group row'>
                             <label htmlFor='workDescription' className='col-sm-2 col-form-label'>説明</label>
                             <div className='col-sm-10'>
-                                <input type='text' name='description' className='form-control' id='workDescription' placeholder='description?' value={this.state.description} onChange={this.handleChangeDescription} />
+                                <input type='text' name='description' className='form-control' id='workDescription' placeholder='description?' />
                             </div>
                         </div>
                         <div className='form-group row'>
                             <label htmlFor='workTags' className='col-sm-2 col-form-label'>タグ</label>
                             <div className='col-sm-10'>
-                                <input type='text' name='tags' className='form-control' id='workTags' placeholder='tag? separated by space' value={this.state.tags} onChange={this.handleChangeTags} />
+                                <input type='text' name='tags' className='form-control' id='workTags' placeholder='tag? separated by space' />
                             </div>
                         </div>
                         <div className='form-group row'>

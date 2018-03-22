@@ -13,10 +13,11 @@ export default class SimpleCardDeck extends React.Component {
     render () {
         const { cid, cards } = this.props;
         return (
-            <div key={cid + '_card_deck'} className='card-deck flex-nowrap'>
+            <div id='simple_card_deck' key={cid + '_card_deck'} className='card-deck flex-nowrap'>
                 {cards.map((card, i) => {
                     return <SimpleCard key={cid + '_card_' + i + '_wrap'} cid={cid + '_card_' + i} card={card} />;
                 })}
+                <div className='p-1' />
             </div>
         );
     }
