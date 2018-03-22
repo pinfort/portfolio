@@ -7,7 +7,7 @@ export default class WorksPage extends React.Component {
     render () {
         return (
             <div className='row justify-content-center'>
-                <div className='col-md-8'>
+                <div className='col-md-10'>
                     <Tabs now='/works' />
                     <div className='tab-content portfolio-main-tab-body'>
                         <div className='tab-pane active'>
