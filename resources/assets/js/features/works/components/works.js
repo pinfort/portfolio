@@ -1,7 +1,7 @@
 import React from 'react';
 import { List, Map, fromJS } from 'immutable';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import SimpleTable from 'src/components/table/simple_table';
+import SimpleCardDeck from 'src/components/cards/simple_card_deck';
 
 export default class Works extends React.Component {
 
@@ -26,66 +26,80 @@ export default class Works extends React.Component {
 
     render() {
         const { works } = this.props;
-        let body = [];
+        let cards = [];
         if (works !== undefined && works !== null) {
             works.map(row => {
-                let formatted_row = [];
+                let formatted_card = {};
+                let formatted_card_body = [];
+                let formatted_card_foot = [];
+                let formatted_card_img = {};
 
-                // <1カラム目: 名称>
+                // <画像>
+                formatted_card_img.src = 'data:image/svg+xml;charset=UTF-8,<svg%20width%3D"286"%20height%3D"180"%20xmlns%3D"http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg"%20viewBox%3D"0%200%20286%20180"%20preserveAspectRatio%3D"none"><defs><style%20type%3D"text%2Fcss">%23holder_1624ce18f10%20text%20{%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A14pt%20}%20<%2Fstyle><%2Fdefs><g%20id%3D"holder_1624ce18f10"><rect%20width%3D"286"%20height%3D"180"%20fill%3D"%23777"><%2Frect><g><%2Fg><%2Fg><%2Fsvg>';
+                formatted_card_img.alt = 'None';
+                // </画像>
+
+                // <名称>
                 const name = row.get('name');
-                const name_obj = { 'isTitle': false, 'isLink': false, 'txt': name };
-                formatted_row.push(name_obj);
-                // </1カラム目: 名称>
+                const name_obj = { type: 'title', txt: name };
+                formatted_card_body.push(name_obj);
+                // </名称>
 
-                // <2カラム目: URL>
+                // <説明>
+                const description = row.get('description');
+                const description_obj = { type: 'txt', 'txt': description };
+                formatted_card_body.push(description_obj);
+                // </説明>
+
+                // <URL>
                 const url = row.get('url');
                 let url_obj = {};
                 if (url === '') {
-                    url_obj = { 'isTitle': false, 'isLink': false, 'txt': '非公開' };
+                    url_obj = { type: 'link', link: '#', link_disable: true, txt: '非公開' };
                 } else {
-                    url_obj = { 'isTitle': false, 'isLink': true, 'txt': 'here', 'link': url };
+                    url_obj = { type: 'link', txt: 'Go', 'link': url };
                 }
-                formatted_row.push(url_obj);
-                // </2カラム目: URL>
+                formatted_card_body.push(url_obj);
+                // </URL>
 
-                // <3カラム目: 説明>
-                const description = row.get('description');
-                const description_obj = { 'istitle': false, 'isLink': false, 'txt': description };
-                formatted_row.push(description_obj);
-                // </3カラム目: 説明>
-
-                // <4カラム目: タグ>
+                // <タグ>
                 const tags = row.get('tags');
-                let tags_str = '';
                 tags.forEach((tag) => {
-                    tags_str += ' ' + tag.get('name');
+                    formatted_card_foot.push(tag.get('name'));
                 });
-                const tags_obj = { type: 'txt', 'isLink': false, 'txt': tags_str.trim() };
-                formatted_row.push(tags_obj);
-                // </4カラム目: タグ>
+                // </タグ>
 
-                body.push(formatted_row);
+                formatted_card.body = formatted_card_body;
+                formatted_card.foot = formatted_card_foot;
+                formatted_card.img = formatted_card_img;
+                cards.push(formatted_card);
             });
 
             // 何もない時に表示するやつ
             if (works.size === 0) {
-                body.push([
-                    { 'isTitle': false, 'isLink': false, 'txt': 'None' },
-                    { 'isTitle': false, 'isLink': false, 'txt': 'None' },
-                    { 'isTitle': false, 'isLink': false, 'txt': 'None' },
-                    { 'isTitle': false, 'isLink': false, 'txt': 'None' },
-                ]);
+                cards.push({
+                    img: {
+                        src: 'data:image/svg+xml;charset=UTF-8,<svg%20width%3D"286"%20height%3D"180"%20xmlns%3D"http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg"%20viewBox%3D"0%200%20286%20180"%20preserveAspectRatio%3D"none"><defs><style%20type%3D"text%2Fcss">%23holder_1624ce18f10%20text%20{%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A14pt%20}%20<%2Fstyle><%2Fdefs><g%20id%3D"holder_1624ce18f10"><rect%20width%3D"286"%20height%3D"180"%20fill%3D"%23777"><%2Frect><g><%2Fg><%2Fg><%2Fsvg>',
+                        alt: 'None',
+                    },
+                    body: [
+                        { type: 'txt', 'txt': 'None' },
+                    ],
+                    foot: [
+                        'None',
+                    ],
+                });
             }
         }
 
-        body = fromJS(body); // to immutable
+        cards = fromJS(cards); // to immutable
 
         return (
             <div className='card m-3'>
                 <div className='card-header'>Works</div>
 
-                <div key={'main_works'} className='card-body'>
-                    <SimpleTable tid='works_table' tclass='table table-hover' thead={this.thead} tbody={body} />
+                <div key={'main_works'} className='card-body' style={{ overflowX: 'scroll' }}>
+                    <SimpleCardDeck cid='main_works_deck' cards={cards} />
                 </div>
             </div>
         );
