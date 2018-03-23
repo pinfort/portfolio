@@ -10,7 +10,7 @@ class AccountsController extends Controller
 {
     public function index(Request $request)
     {
-        return Account::all();
+        return Account::with('service')->get();
     }
 
     public function store(Request $request)
@@ -21,7 +21,27 @@ class AccountsController extends Controller
             'user_page_link' => 'required|url',
             'description' => 'string',
         ]);
-        Account::create($validatedData);
-        return redirect()->route('home');
+        $created = Account::create($validatedData);
+        $created = Account::with('service')->where('id', $created->id)->first();
+        $data = [
+            'status' => 200,
+            'data' => [
+                'account' => $created,
+            ],
+        ];
+        return response()->json($data);
+    }
+
+    public function destroy(Request $request, $id)
+    {
+        $account = Account::find($id);
+        $account->delete();
+        $data = [
+            'status' => 200,
+            'data' => [
+                'id' => (int)$id,
+            ],
+        ];
+        return response()->json($data);
     }
 }

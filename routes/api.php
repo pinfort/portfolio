@@ -22,7 +22,7 @@ Route::middleware(['auth:api'])->group(
         Route::post('/skills/categories', 'Api\SkillCategoriesController@store');
         Route::post('/works', 'Api\WorksController@store');
 
-        Route::post('/accounts', 'Api\AccountsController@store');
+        Route::delete('/accounts/{id}', 'Api\AccountsController@destroy');
         Route::delete('/services/{id}', 'Api\ServicesController@destroy');
         Route::delete('/licenses/{id}', 'Api\LicensesController@destroy');
         Route::delete('/skills/{id}', 'Api\SkillsController@destroy');
