@@ -61,6 +61,9 @@ Route::group(
                 Route::get('/admin/works', function () {
                     return view('index');
                 })->name('admin_works');
+                Route::get('/admin/services', function () {
+                    return view('index');
+                })->name('admin_services');
             }
         );
     }

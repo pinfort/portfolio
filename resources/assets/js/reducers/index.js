@@ -7,6 +7,7 @@ import admin_skills from './admin_skills';
 import admin_skill_categories from './admin_skill_categories';
 import works from './works';
 import admin_works from './admin_works';
+import admin_services from './admin_services';
 
 const reducers = {
     message,
@@ -17,6 +18,7 @@ const reducers = {
     admin_skill_categories,
     works,
     admin_works,
+    admin_services,
 };
 
 export default combineReducers(reducers);

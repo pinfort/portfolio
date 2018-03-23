@@ -18,6 +18,8 @@ export default class AdvancedColumn extends React.Component {
             return this.createFormColumn(content, k);
         } else if (content.get('type') === 'button'){
             return this.createButtonColumn(content, k);
+        } else if (content.get('type') === 'image'){
+            return this.createImageColumn(content, k);
         }
         return content;
     }
@@ -32,6 +34,10 @@ export default class AdvancedColumn extends React.Component {
 
     createButtonColumn(content, k) {
         return <SimpleButton key={k+ '_simple_button'} k={k+ '_simple_button_child'} content={content} children={content.get('children')} />;
+    }
+
+    createImageColumn(content, k) {
+        return <img key={k + '_simple_img'} src={content.get('src')} alt={content.get('alt')} />;
     }
 
     render () {
