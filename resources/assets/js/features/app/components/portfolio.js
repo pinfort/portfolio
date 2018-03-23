@@ -10,6 +10,7 @@ import AdminWorksPage from 'src/features/admin/works_page';
 import AdminServicesPage from 'src/features/admin/services_page';
 import AdminAccountsPage from 'src/features/admin/accounts_page';
 import WorksPage from 'src/features/works_page';
+import AccountsPage from 'src/features/accounts_page';
 import laroute from 'src/laroute.js';
 
 export default class Portfolio extends React.Component {
@@ -21,6 +22,7 @@ export default class Portfolio extends React.Component {
                 <Route path={laroute.route('licenses')} component={LicensesPage} />
                 <Route path={laroute.route('skills')} component={SkillsPage} />
                 <Route path={laroute.route('works')} component={WorksPage} />
+                <Route path={laroute.route('accounts')} component={AccountsPage} />
                 <Route path={laroute.route('admin_licenses')} component={AdminLicensesPage} />
                 <Route exact path={laroute.route('admin_skills')} component={AdminSkillsPage} />
                 <Route exact path={laroute.route('admin_skill_categories')} component={AdminSkillCategoriesPage} />

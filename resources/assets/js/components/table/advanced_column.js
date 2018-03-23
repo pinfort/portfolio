@@ -37,7 +37,7 @@ export default class AdvancedColumn extends React.Component {
     }
 
     createImageColumn(content, k) {
-        return <img key={k + '_simple_img'} src={content.get('src')} alt={content.get('alt')} />;
+        return <img key={k + '_simple_img'} src={content.get('src')} alt={content.get('alt')} className={content.get('class')} />;
     }
 
     render () {
