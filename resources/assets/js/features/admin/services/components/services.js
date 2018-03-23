@@ -38,6 +38,7 @@ export default class Services extends React.Component {
                     type: 'image',
                     src: icon_url,
                     alt: row.get('name'),
+                    class: 'service-img',
                 };
                 formatted_row.push(get_at_obj);
                 // </1カラム目: アイコン>
