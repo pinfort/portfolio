@@ -17,5 +17,6 @@ return [
         'skills' => 'Skills',
         'licenses' => 'Licenses',
         'works' => 'Works',
+        'services' => 'Services',
     ],
 ];

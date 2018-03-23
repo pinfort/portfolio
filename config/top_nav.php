@@ -15,6 +15,8 @@ return [
             'skills' => '/admin/skills',
             'licenses' => '/admin/licenses',
             'works' => '/admin/works',
+            'services' => '/admin/services',
+            'accounts' => '/admin/accounts',
         ],
         // 'nest_menu' => [
         //     'children' => '/children',
