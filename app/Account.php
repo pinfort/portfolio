@@ -11,6 +11,7 @@ class Account extends Model
         'user_name',
         'user_page_link',
         'description',
+        'visible',
     ];
 
     public function service()
