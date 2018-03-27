@@ -44,6 +44,9 @@ Route::group(
         Route::get('/accounts', function () {
             return view('index');
         })->name('accounts');
+        Route::get('/works/{id}', function () {
+            return view('index');
+        })->name('work_detail');
 
         // JSから読めるもので認証が必要
         Route::group(
