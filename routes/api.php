@@ -42,3 +42,5 @@ Route::get('/skills', 'Api\SkillsController@index')->name('api.skills');
 Route::get('/skills/categories', 'Api\SkillCategoriesController@index')->name('api.skill_categories');
 Route::get('/works', 'Api\WorksController@index')->name('api.works');
 Route::get('/tags', 'Api\TagsController@index')->name('api.tags');
+
+Route::get('/works/{id}', 'Api\WorksController@show');
