@@ -17,7 +17,7 @@ class WorksController extends Controller
 
     public function show(Request $request, $id)
     {
-        return Work::with('tags')->find($id);
+        return Work::with('tags')->findOrFail($id);
     }
 
     public function store(Request $request)
