@@ -28,6 +28,10 @@ Route::middleware(['auth:api'])->group(
         Route::delete('/skills/{id}', 'Api\SkillsController@destroy');
         Route::delete('/skills/categories/{id}', 'Api\SkillCategoriesController@destroy');
         Route::delete('/works/{id}', 'Api\WorksController@destroy');
+
+        Route::patch('/accounts/{id}', 'Api\AccountsController@update');
+        Route::patch('/accounts/{id}/visible', 'Api\AccountsController@visible');
+        Route::patch('/accounts/{id}/invisible', 'Api\AccountsController@invisible');
     }
 );
 

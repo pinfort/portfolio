@@ -11,7 +11,7 @@ class AccountsController extends Controller
 {
     public function index(Request $request)
     {
-        if (Auth::check()) {
+        if (Auth::guard('api')->check() && !$request->input('guest')) {
             return Account::with('service')->get();
         } else {
             return Account::with('service')->where('visible', true)->get();
@@ -42,6 +42,55 @@ class AccountsController extends Controller
     {
         $account = Account::find($id);
         $account->delete();
+        $data = [
+            'status' => 200,
+            'data' => [
+                'id' => (int)$id,
+            ],
+        ];
+        return response()->json($data);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'service_id' => 'required|integer',
+            'user_name' => 'required|string|max:255',
+            'user_page_link' => 'required|url',
+            'description' => 'string',
+            'visible' => 'boolean',
+        ]);
+        $account = Account::find($id);
+        $account->fill($validatedData);
+        $account->save();
+        $data = [
+            'status' => 200,
+            'data' => [
+                'account' => $account,
+            ],
+        ];
+        return response()->json($data);
+    }
+
+    public function visible(Request $request, $id)
+    {
+        $account = Account::find($id);
+        $account->visible = true;
+        $account->save();
+        $data = [
+            'status' => 200,
+            'data' => [
+                'id' => (int)$id,
+            ],
+        ];
+        return response()->json($data);
+    }
+
+    public function invisible(Request $request, $id)
+    {
+        $account = Account::find($id);
+        $account->visible = false;
+        $account->save();
         $data = [
             'status' => 200,
             'data' => [

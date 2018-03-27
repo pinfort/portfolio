@@ -9,7 +9,7 @@ export function refreshAccounts() {
         dispatch(refreshAccountsRequest());
 
         api(getState).get(
-            '/api/accounts',
+            '/api/accounts?guest=true',
         ).then(response => {
             dispatch(refreshAccountsSuccess(response.data));
         }).catch(error => {

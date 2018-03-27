@@ -120,3 +120,79 @@ export function addAccountFail(error) {
         error,
     };
 }
+
+export const ADMIN_ACCOUNT_VISIBLE_REQUEST = 'ADMIN_ACCOUNT_VISIBLE_REQUEST';
+export const ADMIN_ACCOUNT_VISIBLE_SUCCESS = 'ADMIN_ACCOUNT_VISIBLE_SUCCESS';
+export const ADMIN_ACCOUNT_VISIBLE_FAIL    = 'ADMIN_ACCOUNT_VISIBLE_FAIL';
+
+export function visibleAccount(id) {
+    return (dispatch, getState) => {
+        dispatch(visibleAccountRequest());
+
+        api(getState).patch(
+            '/api/accounts/' + id + '/visible',
+        ).then(response => {
+            dispatch(visibleAccountSuccess(response.data.id));
+        }).catch(error => {
+            dispatch(visibleAccountFail(error));
+        });
+    };
+}
+
+export function visibleAccountRequest() {
+    return {
+        type: ADMIN_ACCOUNT_VISIBLE_REQUEST,
+    };
+}
+
+export function visibleAccountSuccess(accountId) {
+    return {
+        type: ADMIN_ACCOUNT_VISIBLE_SUCCESS,
+        accountId,
+    };
+}
+
+export function visibleAccountFail(error) {
+    return {
+        type: ADMIN_ACCOUNT_VISIBLE_FAIL,
+        error,
+    };
+}
+
+export const ADMIN_ACCOUNT_INVISIBLE_REQUEST = 'ADMIN_ACCOUNT_INVISIBLE_REQUEST';
+export const ADMIN_ACCOUNT_INVISIBLE_SUCCESS = 'ADMIN_ACCOUNT_INVISIBLE_SUCCESS';
+export const ADMIN_ACCOUNT_INVISIBLE_FAIL    = 'ADMIN_ACCOUNT_INVISIBLE_FAIL';
+
+export function invisibleAccount(id) {
+    return (dispatch, getState) => {
+        dispatch(invisibleAccountRequest());
+
+        api(getState).patch(
+            '/api/accounts/' + id + '/invisible',
+        ).then(response => {
+            dispatch(invisibleAccountSuccess(response.data.id));
+        }).catch(error => {
+            dispatch(invisibleAccountFail(error));
+        });
+    };
+}
+
+export function invisibleAccountRequest() {
+    return {
+        type: ADMIN_ACCOUNT_INVISIBLE_REQUEST,
+    };
+}
+
+export function invisibleAccountSuccess(accountId) {
+    return {
+        type: ADMIN_ACCOUNT_INVISIBLE_SUCCESS,
+        accountId,
+    };
+}
+
+export function invisibleAccountFail(error) {
+    return {
+        type: ADMIN_ACCOUNT_INVISIBLE_FAIL,
+        error,
+    };
+}

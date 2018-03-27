@@ -20,6 +20,7 @@ export default class Accounts extends React.Component {
         List.of(
             Map({ 'isTitle': true, 'isLink': false, 'txt': 'アカウント名' }),
             Map({ 'isTitle': true, 'isLink': false, 'txt': '説明' }),
+            Map({ 'isTitle': true, 'isLink': false, 'txt': '公開' }),
             Map({ 'isTitle': true, 'isLink': false, 'txt': '削除' }),
         )
     );
@@ -43,9 +44,20 @@ export default class Accounts extends React.Component {
                 formatted_row.push(description_obj);
                 // </2カラム目: 説明>
 
-                // <3カラム目: 削除ボタン>
+                // <3カラム目: 公開ボタン>
+                const vis_btn = {
+                    type: 'button',
+                    button_type: 'visible',
+                    visible: Boolean(row.get('visible')),
+                    target_id: row.get('id'),
+                };
+                formatted_row.push(vis_btn);
+                // </3カラム目: 公開ボタン>
+
+                // <4カラム目: 削除ボタン>
                 const del_btn = {
                     type: 'button',
+                    button_type: 'delete',
                     className: 'btn btn-light',
                     children: {
                         type: 'font_awesome',
@@ -54,7 +66,7 @@ export default class Accounts extends React.Component {
                     target_id: row.get('id'),
                 };
                 formatted_row.push(del_btn);
-                // </3カラム目: 削除ボタン>
+                // </4カラム目: 削除ボタン>
 
                 // 該当するサービスに行を追加
                 let service_name = row.get('service').get('name');
@@ -70,6 +82,7 @@ export default class Accounts extends React.Component {
                 services.nothing.push([
                     { type: 'txt', isLink: false, txt: 'None' },
                     { type: 'txt', isLink: false, txt: 'None' },
+                    { type: 'txt', isLink: false, txt: 'x' },
                     { type: 'txt', isLink: false, txt: 'x' },
                 ]);
             }

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import ImmutablePropTypes from 'react-immutable-proptypes';
+import ToggleButton from 'react-toggle-button';
 
 export default class SkillsForm extends React.Component {
 
@@ -15,11 +16,13 @@ export default class SkillsForm extends React.Component {
             service_id: '0',
             description: '',
             user_page_link: '',
+            visible: true,
         };
         this.handleChangeService = this.handleChangeService.bind(this);
         this.handleChangeName = this.handleChangeName.bind(this);
         this.handleChangeDescription = this.handleChangeDescription.bind(this);
         this.handleChangeLink = this.handleChangeLink.bind(this);
+        this.handleChangeVisible = this.handleChangeVisible.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -53,6 +56,12 @@ export default class SkillsForm extends React.Component {
         });
     }
 
+    handleChangeVisible(value) {
+        this.setState({
+            visible: !value,
+        });
+    }
+
     handleSubmit(event) {
         event.preventDefault();
         if (this.state.service_id === '0') {
@@ -65,6 +74,7 @@ export default class SkillsForm extends React.Component {
             service_id: '0',
             description: '',
             user_page_link: '',
+            visible: true,
         });
     }
 
@@ -111,6 +121,12 @@ export default class SkillsForm extends React.Component {
                             <label htmlFor='accountLink' className='col-sm-2 col-form-label'>ユーザーページのURL</label>
                             <div className='col-sm-10'>
                                 <input type='text' name='user_page_link' className='form-control' id='accountLink' placeholder='What?' value={this.state.user_page_link} onChange={this.handleChangeLink} />
+                            </div>
+                        </div>
+                        <div className='form-group row'>
+                            <label htmlFor='accountVisible' className='col-sm-2 col-form-label'>公開</label>
+                            <div className='col-sm-10'>
+                                <ToggleButton value={this.state.visible} onToggle={this.handleChangeVisible} />
                             </div>
                         </div>
                         <div className='form-group row'>
