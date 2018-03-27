@@ -10,6 +10,7 @@ import admin_works from './admin_works';
 import admin_services from './admin_services';
 import admin_accounts from './admin_accounts';
 import accounts from './accounts';
+import work_detail from './work_detail';
 
 const reducers = {
     message,
@@ -23,6 +24,7 @@ const reducers = {
     admin_services,
     admin_accounts,
     accounts,
+    work_detail,
 };
 
 export default combineReducers(reducers);
