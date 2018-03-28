@@ -52,21 +52,20 @@ export default class Works extends React.Component {
                 // </名称>
 
                 // <説明>
-                const description = row.get('description');
+                let description = row.get('description');
+                if (description.length > 50) {
+                    description = description.slice(0, 50) + '...';
+                }
                 const description_obj = { type: 'txt', 'txt': description };
                 formatted_card_body.push(description_obj);
                 // </説明>
 
-                // <URL>
-                const url = row.get('url');
+                // <詳細ページ>
+                const id = row.get('id');
                 let url_obj = {};
-                if (url === '') {
-                    url_obj = { type: 'link', link: '#', link_disable: true, txt: '非公開' };
-                } else {
-                    url_obj = { type: 'link', txt: 'Go', 'link': url };
-                }
+                url_obj = { type: 'link', txt: '詳しく', 'link': '/works/' + id };
                 formatted_card_body.push(url_obj);
-                // </URL>
+                // </詳細ページ>
 
                 // <タグ>
                 const tags = row.get('tags');
