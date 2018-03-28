@@ -44,7 +44,7 @@ export default class WorksForm extends React.Component {
                         <div className='form-group row'>
                             <label htmlFor='workDescription' className='col-sm-2 col-form-label'>説明</label>
                             <div className='col-sm-10'>
-                                <input type='text' name='description' className='form-control' id='workDescription' placeholder='description?' />
+                                <textarea name='description' className='form-control' id='workDescription' placeholder='description?' />
                             </div>
                         </div>
                         <div className='form-group row'>
