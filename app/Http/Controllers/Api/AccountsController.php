@@ -24,7 +24,7 @@ class AccountsController extends Controller
             'service_id' => 'required|integer',
             'user_name' => 'required|string|max:255',
             'user_page_link' => 'required|url',
-            'description' => 'string',
+            'description' => 'string|max:255',
             'visible' => 'boolean',
         ]);
         $created = Account::create($validatedData);
@@ -54,10 +54,10 @@ class AccountsController extends Controller
     public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
-            'service_id' => 'required|integer',
-            'user_name' => 'required|string|max:255',
-            'user_page_link' => 'required|url',
-            'description' => 'string',
+            'service_id' => 'integer',
+            'user_name' => 'string|max:255',
+            'user_page_link' => 'url',
+            'description' => 'string|max:255',
             'visible' => 'boolean',
         ]);
         $account = Account::find($id);
