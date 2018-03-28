@@ -24,7 +24,7 @@ class WorksController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
-            'description' => 'string|max:255',
+            'description' => 'string|max:65535',
             'url' => 'string|max:255',
             'source_url' => 'string|max:255',
             'tags' => 'string|max:255',
@@ -67,6 +67,28 @@ class WorksController extends Controller
             'status' => 200,
             'data' => [
                 'id' => (int)$id,
+            ],
+        ];
+        return response()->json($data);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'name' => 'string|max:255',
+            'description' => 'string|max:65535',
+            'url' => 'string|max:255',
+            'source_url' => 'string|max:255',
+            'tags' => 'string|max:255',
+            'image' => 'image',
+        ]);
+        $work = Work::findOrFail($id);
+        $work->fill($validatedData);
+        $work->save();
+        $data = [
+            'status' => 200,
+            'data' => [
+                'work' => $work,
             ],
         ];
         return response()->json($data);
