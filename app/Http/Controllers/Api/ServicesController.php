@@ -34,7 +34,7 @@ class ServicesController extends Controller
 
     public function destroy(Request $request, $id)
     {
-        $service = Service::find($id);
+        $service = Service::findOrFail($id);
         $service->delete();
         $data = [
             'status' => 200,

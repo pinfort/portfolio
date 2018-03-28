@@ -31,7 +31,7 @@ class LicensesController extends Controller
 
     public function destroy(Request $request, $id)
     {
-        $license = License::find($id);
+        $license = License::findOrFail($id);
         $license->delete();
         $data = [
             'status' => 200,

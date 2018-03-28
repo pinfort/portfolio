@@ -61,7 +61,7 @@ class WorksController extends Controller
 
     public function destroy(Request $request, $id)
     {
-        $work = Work::find($id);
+        $work = Work::findOrFail($id);
         $work->delete();
         $data = [
             'status' => 200,

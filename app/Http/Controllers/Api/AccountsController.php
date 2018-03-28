@@ -40,7 +40,7 @@ class AccountsController extends Controller
 
     public function destroy(Request $request, $id)
     {
-        $account = Account::find($id);
+        $account = Account::findOrFail($id);
         $account->delete();
         $data = [
             'status' => 200,
@@ -60,7 +60,7 @@ class AccountsController extends Controller
             'description' => 'string|max:255',
             'visible' => 'boolean',
         ]);
-        $account = Account::find($id);
+        $account = Account::findOrFail($id);
         $account->fill($validatedData);
         $account->save();
         $data = [
@@ -74,7 +74,7 @@ class AccountsController extends Controller
 
     public function visible(Request $request, $id)
     {
-        $account = Account::find($id);
+        $account = Account::findOrFail($id);
         $account->visible = true;
         $account->save();
         $data = [
@@ -88,7 +88,7 @@ class AccountsController extends Controller
 
     public function invisible(Request $request, $id)
     {
-        $account = Account::find($id);
+        $account = Account::findOrFail($id);
         $account->visible = false;
         $account->save();
         $data = [

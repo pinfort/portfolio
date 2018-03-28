@@ -31,7 +31,7 @@ class SkillCategoriesController extends Controller
 
     public function destroy(Request $request, $id)
     {
-        $skill_category = SkillCategory::find($id);
+        $skill_category = SkillCategory::findOrFail($id);
         $skill_category->delete();
         $data = [
             'status' => 200,

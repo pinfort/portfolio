@@ -35,7 +35,7 @@ class SkillsController extends Controller
 
     public function destroy(Request $request, $id)
     {
-        $skill = Skill::find($id);
+        $skill = Skill::findOrFail($id);
         $skill->delete();
         $data = [
             'status' => 200,
