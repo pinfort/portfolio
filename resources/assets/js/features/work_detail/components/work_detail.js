@@ -15,9 +15,7 @@ export default class WorkDetail extends React.Component {
 
     componentDidMount() {
         const { id } = this.props.match.params;
-        if ( this.props.work === null || this.props.work === undefined ) {
-            this.props.onRefresh(id);
-        }
+        this.props.onRefresh(id);
     }
 
     render() {
