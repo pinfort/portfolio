@@ -1,6 +1,7 @@
 import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 export default class SimpleCard extends React.Component {
 
@@ -55,7 +56,7 @@ export default class SimpleCard extends React.Component {
         if (content.get('link_disable')) {
             linkClass += ' disabled';
         }
-        return <a key={cid + '_link'} className={linkClass} href={content.get('link')}>{content.get('txt')}</a>;
+        return <Link key={cid + '_link'} className={linkClass} to={content.get('link')}>{content.get('txt')}</Link>;
     }
 
     createCtxt(cid, content) {
