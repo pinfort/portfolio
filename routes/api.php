@@ -44,3 +44,4 @@ Route::get('/works', 'Api\WorksController@index')->name('api.works');
 Route::get('/tags', 'Api\TagsController@index')->name('api.tags');
 
 Route::get('/works/{id}', 'Api\WorksController@show');
+Route::get('/tags/{id}', 'Api\TagsController@show');

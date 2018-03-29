@@ -12,4 +12,9 @@ class TagsController extends Controller
     {
         return Tag::all();
     }
+
+    public function show(Request $request, $id)
+    {
+        return Tag::with('works')->findOrFail($id);
+    }
 }
