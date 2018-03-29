@@ -5,7 +5,7 @@ export default class WorkDetail extends React.Component {
 
     render () {
         return (
-            <WorkDetailContainer match={this.props.match} />
+            <WorkDetailContainer {...this.props} />
         );
     }
 
