@@ -1,6 +1,7 @@
 import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import PropTypes from 'prop-types';
+import SimpleLink from 'src/components/simple_link';
 
 export default class SimpleTxt extends React.Component {
 
@@ -14,7 +15,7 @@ export default class SimpleTxt extends React.Component {
 
         return (
             <td key={k}>
-                {(() => col.get('isLink') ? <a href={col.get('link')}>{col.get('txt')}</a> : col.get('txt'))()}
+                {(() => col.get('isLink') ? <SimpleLink to={col.get('link')} content={col.get('txt')} /> : col.get('txt'))()}
             </td>
         );
     }

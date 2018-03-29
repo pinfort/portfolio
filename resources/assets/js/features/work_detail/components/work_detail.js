@@ -1,6 +1,7 @@
 import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import PropTypes from 'prop-types';
+import SimpleLink from 'src/components/simple_link';
 
 export default class WorkDetail extends React.Component {
 
@@ -59,7 +60,7 @@ export default class WorkDetail extends React.Component {
             data.tags = [];
             const tags = work.get('tags');
             tags.forEach((tag, i) => {
-                data.tags.push(<a key={'mytest_work_tags_' + i} className='badge badge-primary mx-1' href={'/tags/' + tag.get('id')}>{tag.get('name')}</a>);
+                data.tags.push(<SimpleLink key={'mytest_work_tags_' + i} className='badge badge-primary mx-1' to={'/tags/' + tag.get('id')} content={tag.get('name')} />);
             });
             // </タグ>
         }
