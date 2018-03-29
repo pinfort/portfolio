@@ -8,6 +8,7 @@ export default class SimpleCard extends React.Component {
     static propTypes = {
         cid: PropTypes.string.isRequired,
         card: ImmutablePropTypes.map.isRequired,
+        className: PropTypes.string,
     }
 
     createCimg(cid, content) {
@@ -64,9 +65,9 @@ export default class SimpleCard extends React.Component {
     }
 
     render () {
-        const { cid, card } = this.props;
+        const { cid, card, className } = this.props;
         return (
-            <div className='card' style={{ width: '18rem', flexShrink: 0, flexBasis: 'auto' }}>
+            <div className={'card ' + className} style={{ width: '18rem', flexShrink: 0, flexGrow: 0, flexBasis: 'auto' }}>
                 {this.createCimg(cid, card.get('img'))}
                 {this.createCbody(cid, card.get('body'))}
                 {this.createCfoot(cid, card.get('foot'))}
