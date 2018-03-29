@@ -15,6 +15,6 @@ class TagsController extends Controller
 
     public function show(Request $request, $id)
     {
-        return Tag::with('works')->findOrFail($id);
+        return Tag::with('works')->with('works.tags')->findOrFail($id);
     }
 }
