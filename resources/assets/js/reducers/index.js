@@ -11,6 +11,7 @@ import admin_services from './admin_services';
 import admin_accounts from './admin_accounts';
 import accounts from './accounts';
 import work_detail from './work_detail';
+import tag_detail from './tag_detail';
 
 const reducers = {
     message,
@@ -25,6 +26,7 @@ const reducers = {
     admin_accounts,
     accounts,
     work_detail,
+    tag_detail,
 };
 
 export default combineReducers(reducers);
