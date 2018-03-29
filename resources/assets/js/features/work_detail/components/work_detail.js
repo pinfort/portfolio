@@ -13,7 +13,7 @@ export default class WorkDetail extends React.Component {
         }).isRequired,
     }
 
-    componentWillMount() {
+    componentDidMount() {
         const { id } = this.props.match.params;
         if ( this.props.work === null || this.props.work === undefined ) {
             this.props.onRefresh(id);
@@ -61,7 +61,7 @@ export default class WorkDetail extends React.Component {
             data.tags = [];
             const tags = work.get('tags');
             tags.forEach((tag, i) => {
-                data.tags.push(<a key={'mytest_work_tags_' + i} className='badge badge-primary' href={'/tags/' + tag.get('id')}>{tag.get('name')}</a>);
+                data.tags.push(<a key={'mytest_work_tags_' + i} className='badge badge-primary mx-1' href={'/tags/' + tag.get('id')}>{tag.get('name')}</a>);
             });
             // </タグ>
         }
@@ -75,7 +75,11 @@ export default class WorkDetail extends React.Component {
                         <div key='main_work' className='card-body'>
                             <img src={data.image_url} alt={data.image_alt} style={{ maxWidth: '100%' }} />
                             <p key='mytest_work_description'>{data.description || 'None'}</p>
-                            <p key='mytest_work_tags'>{data.tags || 'None'}</p>
+                            <p key='mytest_work_tags'>
+                                <span className='border'>
+                                    {data.tags || 'None'}
+                                </span>
+                            </p>
                         </div>
                     </div>
                 </div>
