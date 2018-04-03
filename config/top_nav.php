@@ -9,7 +9,15 @@ return [
     // value is url. or, you can add array to value for nest menu.
     // nestable. attention max_depth setting.
     'menu' => [
-        'top' => '/',
+        'home' => '/home',
+        'admin' => [
+            'skills' => '/admin/skills',
+            'licenses' => '/admin/licenses',
+            'works' => '/admin/works',
+            'services' => '/admin/services',
+            'accounts' => '/admin/accounts',
+            'introduction' => '/admin/introduction',
+        ],
         // 'nest_menu' => [
         //     'children' => '/children',
         // ],

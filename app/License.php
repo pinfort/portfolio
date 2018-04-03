@@ -10,4 +10,8 @@ class License extends Model
         'name',
         'get_at',
     ];
+
+    protected $casts = [
+        'get_at' => 'string',
+    ];
 }

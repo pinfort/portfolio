@@ -3,6 +3,7 @@
 /public/storage
 /public/js
 /public/css
+/public/fonts
 /storage/*.key
 /vendor
 /.idea
@@ -13,4 +14,5 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 .env
-*.code-workspace
+/typings
+/resources/assets/js/laroute.js

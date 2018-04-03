@@ -1,11 +1,15 @@
 import axios from 'axios';
+import apiToken from './api_token';
 
 export default () => axios.create({
-  transformResponse: [(data) => {
-    try {
-      return JSON.parse(data);
-    } catch (Exception) {
-      return data;
-    }
-  }],
+    headers: {
+        'Authorization': 'Bearer ' + apiToken,
+    },
+    transformResponse: [(data) => {
+        try {
+            return JSON.parse(data);
+        } catch (Exception) {
+            return data;
+        }
+    }],
 });

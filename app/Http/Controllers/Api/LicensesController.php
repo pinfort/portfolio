@@ -10,7 +10,7 @@ class LicensesController extends Controller
 {
     public function index(Request $request)
     {
-        return License::all();
+        return License::orderBy('get_at', 'DESC')->get();
     }
 
     public function store(Request $request)
@@ -19,7 +19,26 @@ class LicensesController extends Controller
             'name' => 'required|string|max:255',
             'get_at' => 'required|date_format:Ym',
         ]);
-        License::create($validatedData);
-        return redirect()->route('api.licenses');
+        $created = License::create($validatedData);
+        $data = [
+            'status' => 200,
+            'data' => [
+                'license' => $created,
+            ],
+        ];
+        return response()->json($data);
+    }
+
+    public function destroy(Request $request, $id)
+    {
+        $license = License::findOrFail($id);
+        $license->delete();
+        $data = [
+            'status' => 200,
+            'data' => [
+                'id' => (int)$id,
+            ],
+        ];
+        return response()->json($data);
     }
 }

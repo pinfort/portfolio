@@ -16,13 +16,32 @@ class ServicesController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required|max:255',
-            'url' => 'required',
-            'icon' => 'image',
+            'name' => 'required|string|max:255',
+            'url' => 'required|string|max:255',
+            'icon' => 'image|required',
         ]);
         $icon_path = $request->file('icon')->store('services');
         $validatedData['icon_path'] = $icon_path;
-        Service::create($validatedData);
-        return redirect()->route('api.services');
+        $created = Service::create($validatedData);
+        $data = [
+            'status' => 200,
+            'data' => [
+                'service' => $created,
+            ],
+        ];
+        return response()->json($data);
+    }
+
+    public function destroy(Request $request, $id)
+    {
+        $service = Service::findOrFail($id);
+        $service->delete();
+        $data = [
+            'status' => 200,
+            'data' => [
+                'id' => (int)$id,
+            ],
+        ];
+        return response()->json($data);
     }
 }
