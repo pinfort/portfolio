@@ -14,7 +14,7 @@
 Route::get(
     '/',
     function () {
-        return view('welcome');
+        return redirect('/home');
     }
 );
 
@@ -47,6 +47,9 @@ Route::group(
         Route::get('/works/{id}', function () {
             return view('index');
         })->name('work_detail');
+        Route::get('/tags/{id}', function () {
+            return view('index');
+        })->name('tag_detail');
 
         // JSから読めるもので認証が必要
         Route::group(
