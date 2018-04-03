@@ -4,6 +4,7 @@ import Skills from 'src/features/skills';
 import Licenses from 'src/features/licenses';
 import Works from 'src/features/works';
 import Accounts from 'src/features/accounts';
+import Introduction from 'src/features/introduction';
 
 export default class HomePage extends React.Component {
 
@@ -14,6 +15,7 @@ export default class HomePage extends React.Component {
                     <Tabs now='/home' />
                     <div className='tab-content portfolio-main-tab-body'>
                         <div className='tab-pane active'>
+                            <Introduction />
                             <Skills />
                             <Licenses />
                             <Works />
