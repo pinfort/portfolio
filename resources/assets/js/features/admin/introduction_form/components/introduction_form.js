@@ -56,13 +56,13 @@ export default class LicensesForm extends React.Component {
     render() {
         return (
             <div className='card m-3'>
-                <div className='card-header'>Add License</div>
+                <div className='card-header'>Edit Introduction</div>
                 <div className='card-body'>
                     <form action='javascript:void(0)' onSubmit={this.handleSubmit}>
                         <div className='form-group row'>
                             <label htmlFor='introduction' className='col-sm-2 col-form-label'>自己紹介</label>
                             <div className='col-sm-10'>
-                                <input type='text' name='introduction' className='form-control' id='introduction' placeholder='What?' value={this.state.introduction} onChange={this.handleChangeIntroduction} />
+                                <textarea name='introduction' rows='5' className='form-control' id='introduction' placeholder='What?' value={this.state.introduction} onChange={this.handleChangeIntroduction} />
                             </div>
                         </div>
                         <div className='form-group row'>

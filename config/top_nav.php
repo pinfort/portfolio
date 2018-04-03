@@ -16,6 +16,7 @@ return [
             'works' => '/admin/works',
             'services' => '/admin/services',
             'accounts' => '/admin/accounts',
+            'introduction' => '/admin/introduction',
         ],
         // 'nest_menu' => [
         //     'children' => '/children',
