@@ -32,6 +32,7 @@ Route::middleware(['auth:api'])->group(
         Route::patch('/accounts/{id}', 'Api\AccountsController@update');
         Route::patch('/accounts/{id}/visible', 'Api\AccountsController@visible');
         Route::patch('/accounts/{id}/invisible', 'Api\AccountsController@invisible');
+        Route::patch('/users/introduction', 'Api\UsersController@introduction');
     }
 );
 
