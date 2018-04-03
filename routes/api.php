@@ -32,7 +32,7 @@ Route::middleware(['auth:api'])->group(
         Route::patch('/accounts/{id}', 'Api\AccountsController@update');
         Route::patch('/accounts/{id}/visible', 'Api\AccountsController@visible');
         Route::patch('/accounts/{id}/invisible', 'Api\AccountsController@invisible');
-        Route::patch('/users/introduction', 'Api\UsersController@introduction');
+        Route::patch('/user/introduction', 'Api\UserController@introductionUpdate');
     }
 );
 
@@ -43,6 +43,7 @@ Route::get('/skills', 'Api\SkillsController@index')->name('api.skills');
 Route::get('/skills/categories', 'Api\SkillCategoriesController@index')->name('api.skill_categories');
 Route::get('/works', 'Api\WorksController@index')->name('api.works');
 Route::get('/tags', 'Api\TagsController@index')->name('api.tags');
+Route::get('/user/introduction', 'Api\UserController@introduction');
 
 Route::get('/works/{id}', 'Api\WorksController@show');
 Route::get('/tags/{id}', 'Api\TagsController@show');
