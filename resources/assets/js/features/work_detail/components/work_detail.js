@@ -75,7 +75,7 @@ export default class WorkDetail extends React.Component {
                             <img src={data.image_url} alt={data.image_alt} style={{ maxWidth: '100%' }} />
                             <p key='mytest_work_description'>{data.description || 'None'}</p>
                             <p key='mytest_work_tags'>
-                                <span className='border'>
+                                <span className='border pb-1'>
                                     {data.tags || 'None'}
                                 </span>
                             </p>
