@@ -76,6 +76,9 @@ Route::group(
                 Route::get('/admin/accounts', function () {
                     return view('index');
                 })->name('admin_accounts');
+                Route::get('/admin/introduction', function () {
+                    return view('index');
+                })->name('admin_introduction');
             }
         );
     }
