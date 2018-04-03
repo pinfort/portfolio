@@ -72,7 +72,9 @@ export default class WorkDetail extends React.Component {
                         <div className='card-header'>{data.name || 'None'}</div>
 
                         <div key='main_work' className='card-body'>
-                            <img src={data.image_url} alt={data.image_alt} style={{ maxWidth: '100%' }} />
+                            <div className='work-detail-img text-center mb-4'>
+                                <img src={data.image_url} alt={data.image_alt} style={{ maxWidth: '100%' }} />
+                            </div>
                             <p key='mytest_work_description'>{data.description || 'None'}</p>
                             <p key='mytest_work_tags'>
                                 <span className='border pb-1'>

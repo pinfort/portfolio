@@ -12,7 +12,11 @@ export default class SimpleCard extends React.Component {
     }
 
     createCimg(cid, content) {
-        return <img key={cid + '_img'} className='card-img-top' src={content.get('src')} alt={content.get('alt')} />;
+        return (
+            <div className='card-top-img'>
+                <img key={cid + '_img'} className='card-img-top' src={content.get('src')} alt={content.get('alt')} />
+            </div>
+        );
     }
 
     createCbody(cid, contents) {
