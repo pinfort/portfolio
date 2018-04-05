@@ -25,7 +25,7 @@ class AccountsController extends Controller
             'user_name' => 'required|string|max:255',
             'user_page_link' => 'required|url',
             'description' => 'string|max:255',
-            'visible' => 'boolean',
+            'visible' => 'required',
         ]);
         $created = Account::create($validatedData);
         $created = Account::with('service')->where('id', $created->id)->first();
@@ -58,7 +58,7 @@ class AccountsController extends Controller
             'user_name' => 'string|max:255',
             'user_page_link' => 'url',
             'description' => 'string|max:255',
-            'visible' => 'boolean',
+            'visible' => 'required',
         ]);
         $account = Account::findOrFail($id);
         $account->fill($validatedData);
