@@ -27,6 +27,13 @@ class AccountsController extends Controller
             'description' => 'string|max:255',
             'visible' => 'required',
         ]);
+        if ($validatedData['visible'] === 'true') {
+            $validatedData['visible'] = true;
+        } elseif ($validatedData['visible'] === 'false') {
+            $validatedData['visible'] = false;
+        } else {
+            abort(422);
+        }
         $created = Account::create($validatedData);
         $created = Account::with('service')->where('id', $created->id)->first();
         $data = [
@@ -60,6 +67,13 @@ class AccountsController extends Controller
             'description' => 'string|max:255',
             'visible' => 'required',
         ]);
+        if ($validatedData['visible'] === 'true') {
+            $validatedData['visible'] = true;
+        } elseif ($validatedData['visible'] === 'false') {
+            $validatedData['visible'] = false;
+        } else {
+            abort(422);
+        }
         $account = Account::findOrFail($id);
         $account->fill($validatedData);
         $account->save();
