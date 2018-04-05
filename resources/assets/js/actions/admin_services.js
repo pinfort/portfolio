@@ -87,7 +87,7 @@ export function addService(form) {
         let params = new FormData(form);
 
         api(getState).post(
-            '/api/services/',
+            '/api/services',
             params,
             {
                 headers: {

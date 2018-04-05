@@ -87,7 +87,7 @@ export function addWork(form) {
         let params = new FormData(form);
 
         api(getState).post(
-            '/api/works/',
+            '/api/works',
             params,
             {
                 headers: {
