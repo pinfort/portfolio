@@ -14,7 +14,7 @@ class AddIntroColumnToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->longText('introduction')->default('');
+            $table->longText('introduction');
         });
     }
 
