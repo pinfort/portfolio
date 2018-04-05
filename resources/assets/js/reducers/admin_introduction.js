@@ -9,7 +9,6 @@ import {
 import { Map } from 'immutable';
 
 function normalizeIntroduction(state, introduction) {
-    console.log(introduction);
     return state.set('introduction', introduction);
 }
 
@@ -22,7 +21,6 @@ const initialState = Map({
 });
 
 export default function admin_introduction(state = initialState, action) {
-    console.log(action.type);
     switch (action.type) {
     case ADMIN_INTRODUCTION_REFRESH_SUCCESS:
         return normalizeIntroduction(state, action.introduction);
