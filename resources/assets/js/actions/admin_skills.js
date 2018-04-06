@@ -91,7 +91,7 @@ export function addSkill(data) {
         }
 
         api(getState).post(
-            '/api/skills/',
+            '/api/skills',
             params,
         ).then(response => {
             dispatch(addSkillSuccess(response.data.data.skill));

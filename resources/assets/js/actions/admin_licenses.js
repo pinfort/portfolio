@@ -91,7 +91,7 @@ export function addLicense(data) {
         }
 
         api(getState).post(
-            '/api/licenses/',
+            '/api/licenses',
             params,
         ).then(response => {
             dispatch(addLicenseSuccess(response.data.data.license));

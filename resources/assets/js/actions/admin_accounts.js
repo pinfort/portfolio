@@ -91,7 +91,7 @@ export function addAccount(data) {
         }
 
         api(getState).post(
-            '/api/accounts/',
+            '/api/accounts',
             params,
         ).then(response => {
             dispatch(addAccountSuccess(response.data.data.account));

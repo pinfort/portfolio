@@ -20,7 +20,7 @@ class ServicesController extends Controller
             'url' => 'required|string|max:255',
             'icon' => 'image|required',
         ]);
-        $icon_path = $request->file('icon')->store('services');
+        $icon_path = $request->file('icon')->store('public/services');
         $validatedData['icon_path'] = $icon_path;
         $created = Service::create($validatedData);
         $data = [

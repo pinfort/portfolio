@@ -53,7 +53,7 @@ export function updateIntroduction(data) {
         }
 
         api(getState).patch(
-            '/api/user/introduction/',
+            '/api/user/introduction',
             params,
         ).then(response => {
             dispatch(updateIntroductionSuccess(response.data.data.user.introduction));
