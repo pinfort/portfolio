@@ -35,7 +35,7 @@ class WorksController extends Controller
         $tags = preg_replace('/\s+/', ' ', $tags);
         $tags = explode(' ', $tags);
         try {
-            $path = $request->file('image')->store('works');
+            $path = $request->file('image')->store('public/works');
         } catch (Exception $e) {
             $path = 'works/000';
         }
