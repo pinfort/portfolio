@@ -47,11 +47,12 @@ export default class WorkDetail extends React.Component {
 
             // <URL>
             const url = work.get('url');
-            let url_obj = {};
+            let url_obj;
             if (url === '') {
                 url_obj = { type: 'link', link: '#', link_disable: true, txt: '非公開' };
+                url_obj = <a class='btn btn-primary' href='#' role='button' disabled>非公開</a>;
             } else {
-                url_obj = { type: 'link', txt: 'Go', 'link': url };
+                url_obj = <a class='btn btn-primary' href={url} role='button'>Go the site</a>;
             }
             data.url_obj = url_obj;
             // </URL>
@@ -76,6 +77,9 @@ export default class WorkDetail extends React.Component {
                                 <img src={data.image_url} alt={data.image_alt} />
                             </div>
                             <p key='mytest_work_description'>{data.description || 'None'}</p>
+                            <p key='my_work_link'>
+                                {data.url_obj}
+                            </p>
                             <p key='mytest_work_tags'>
                                 <span className='border pb-1'>
                                     {data.tags || 'None'}
