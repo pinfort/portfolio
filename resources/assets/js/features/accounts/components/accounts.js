@@ -59,8 +59,8 @@ export default class Accounts extends React.Component {
             if (accounts.size === 0) {
                 services.nothing = [];
                 services.nothing.push([
-                    { 'isTitle': false, 'isLink': false, 'txt': 'None' },
-                    { 'isTitle': false, 'isLink': false, 'txt': 'None' },
+                    { 'isTitle': false, 'isLink': false, 'isExternal': false, 'txt': 'None' },
+                    { 'isTitle': false, 'isLink': false, 'isExternal': false, 'txt': 'None' },
                 ]);
             }
         }
