@@ -33,7 +33,7 @@ export default class Accounts extends React.Component {
 
                 // <1カラム目: 名称>
                 const name = row.get('user_name');
-                const name_obj = { type: 'txt', 'isLink': true, 'txt': name, link: row.get('user_page_link') };
+                const name_obj = { type: 'txt', 'isLink': true, 'isexternal': true, 'txt': name, link: row.get('user_page_link') };
                 formatted_row.push(name_obj);
                 // </1カラム目: 名称>
 
