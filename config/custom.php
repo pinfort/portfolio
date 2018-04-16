@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'registable' => true,
+    'registable' => false,
 
     'available_languages' => [
         'ja',

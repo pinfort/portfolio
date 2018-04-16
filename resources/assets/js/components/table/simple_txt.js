@@ -15,7 +15,7 @@ export default class SimpleTxt extends React.Component {
 
         return (
             <td key={k}>
-                {(() => col.get('isLink') ? <SimpleLink to={col.get('link')} content={col.get('txt')} /> : col.get('txt'))()}
+                {(() => col.get('isLink') ? <SimpleLink to={col.get('link')} content={col.get('txt')} is_external={col.get('isExternal')} /> : col.get('txt'))()}
             </td>
         );
     }

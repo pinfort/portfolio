@@ -9,12 +9,13 @@ export default class SimpleLink extends React.Component {
         content: PropTypes.any.isRequired,
         className: PropTypes.string,
         k: PropTypes.string,
+        is_external: PropTypes.bool.isRequired,
     }
 
     render () {
-        const { to, content, className, k } = this.props;
+        const { to, content, className, k, is_external } = this.props;
         return (
-            <Link key={k} to={to} className={className}>{content}</Link>
+            is_external ? <a key={k} href={to} className={className}>{content}</a> : <Link key={k} to={to} className={className}>{content}</Link>
         );
     }
 
