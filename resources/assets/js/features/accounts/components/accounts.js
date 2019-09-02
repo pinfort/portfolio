@@ -62,11 +62,23 @@ export default class Accounts extends React.Component {
                     { 'isTitle': false, 'isLink': false, 'isExternal': false, 'txt': 'None' },
                     { 'isTitle': false, 'isLink': false, 'isExternal': false, 'txt': 'None' },
                 ]);
+
+                if (service_meta['nothing'] === undefined || service_meta['service_name'] === null) {
+                    service_meta['nothing'] = {
+                        'id':2,
+                        'name':'Twitter',
+                        'url':'https:\/\/twitter.com',
+                        'icon_path':'public\/services\/cgGdziMGtT9faKZbwb2Fb9Mk7SF85aTrU6jLqKo8.png',
+                        'created_at':'2018-04-05 16:31:00',
+                        'updated_at':'2018-04-05 16:31:00',
+                        'icon_url':'\/storage\/services\/cgGdziMGtT9faKZbwb2Fb9Mk7SF85aTrU6jLqKo8.png',
+                    };
+                }
             }
         }
 
         services = fromJS(services); // to immutable
-
+        // console.log(service_meta['nothing'].toString())
         let lists = [];
 
         services.entrySeq().forEach(e => (
@@ -76,7 +88,7 @@ export default class Accounts extends React.Component {
                         list_id={'accounts_list_' + e[0]}
                         contents={
                             List([
-                                <span><img src={service_meta[e[0]].get('icon_url')} alt={e[0]} className='service-icon-img' />{e[0]}</span>,
+                                <span><img src={service_meta[e[0]].icon_url} alt={e[0]} className='service-icon-img' />{e[0]}</span>,
                                 <SimpleTable key={'accounts_' + e[0] + '_table_wrap'} tid={'accounts_' + e[0] + '_table'} tclass='table table-hover' thead={this.thead} tbody={e[1]} />,
                             ])
                         }
