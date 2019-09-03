@@ -78,7 +78,6 @@ export default class Accounts extends React.Component {
         }
 
         services = fromJS(services); // to immutable
-        // console.log(service_meta['nothing'].toString())
         let lists = [];
 
         services.entrySeq().forEach(e => (
