@@ -6,17 +6,23 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use Exception;
 
 class UserController extends Controller
 {
     public function introduction(Request $request)
     {
-        // とりあえずプライマリキーで一人目を返す（二人以上登録するような構造にする気はないので）
-        $user = User::first();
+        try {
+            // とりあえずプライマリキーで一人目を返す（二人以上登録するような構造にする気はないので）
+            $user = User::first();
+            $introduction = $user->introduction;
+        } catch(Exception $e) {
+            $introduction = "";
+        }
         $data = [
             'status' => 200,
             'data' => [
-                'user_introduction' => $user->introduction,
+                'user_introduction' => $introduction,
             ],
         ];
         return response()->json($data);
