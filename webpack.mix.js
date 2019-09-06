@@ -15,7 +15,7 @@ mix.webpackConfig({
     resolve: {
         extensions: ['.js'],
         alias: {
-            'src': __dirname + '/resources/assets/js', // srcで指定ディレクトリにアクセスできる
+            'src': __dirname + '/resources/js', // srcで指定ディレクトリにアクセスできる
         },
     },
 })
