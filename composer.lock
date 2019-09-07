@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6dd1e2766bd0e78aa169714a79f96bb6",
+    "content-hash": "5c0ebb894b3d8a6a726cfc9b48fedcc9",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1956,16 +1956,16 @@
         },
         {
             "name": "pinfort/laravel-topnav",
-            "version": "0.0.4",
+            "version": "v0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pinfort/laravel-topnav.git",
-                "reference": "e02d7998454b3a14cafe68724a37f868a861abb1"
+                "reference": "506ddffb7d64180196d95bd1ca8b828f561984ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pinfort/laravel-topnav/zipball/e02d7998454b3a14cafe68724a37f868a861abb1",
-                "reference": "e02d7998454b3a14cafe68724a37f868a861abb1",
+                "url": "https://api.github.com/repos/pinfort/laravel-topnav/zipball/506ddffb7d64180196d95bd1ca8b828f561984ee",
+                "reference": "506ddffb7d64180196d95bd1ca8b828f561984ee",
                 "shasum": ""
             },
             "require": {
@@ -2004,7 +2004,7 @@
                 "menu",
                 "navigation"
             ],
-            "time": "2018-02-27T13:29:13+00:00"
+            "time": "2018-04-12T13:29:38+00:00"
         },
         {
             "name": "psr/container",
