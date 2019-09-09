@@ -30,9 +30,9 @@ export default class ServicesForm extends React.Component {
                             </div>
                         </div>
                         <div className='form-group row'>
-                            <label htmlFor='serviceIcon' className='col-sm-2 col-form-label'>アイコン</label>
+                            <label htmlFor='serviceIcon' className='col-sm-2 col-form-label'>アイコンのfa-key</label>
                             <div className='col-sm-10'>
-                                <input type='file' name='icon' className='form-control' id='serviceIcon' />
+                                <input type='text' name='icon' className='form-control' id='serviceIcon' />
                             </div>
                         </div>
                         <div className='form-group row'>
