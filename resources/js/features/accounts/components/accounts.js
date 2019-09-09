@@ -87,7 +87,7 @@ export default class Accounts extends React.Component {
                         list_id={'accounts_list_' + e[0]}
                         contents={
                             List([
-                                <span><img src={service_meta[e[0]]["icon_url"]} alt={e[0]} className='service-icon-img' />{e[0]}</span>,
+                                <span><img src={service_meta[e[0]].get('icon_url')} alt={e[0]} className='service-icon-img' />{e[0]}</span>,
                                 <SimpleTable key={'accounts_' + e[0] + '_table_wrap'} tid={'accounts_' + e[0] + '_table'} tclass='table table-hover' thead={this.thead} tbody={e[1]} />,
                             ])
                         }
