@@ -71,7 +71,7 @@ export default class Accounts extends React.Component {
                         'icon_path':'public\/services\/cgGdziMGtT9faKZbwb2Fb9Mk7SF85aTrU6jLqKo8.png',
                         'created_at':'2018-04-05 16:31:00',
                         'updated_at':'2018-04-05 16:31:00',
-                        'icon_url':'\/storage\/services\/cgGdziMGtT9faKZbwb2Fb9Mk7SF85aTrU6jLqKo8.png',
+                        'icon':'twitter',
                     };
                 }
             }
@@ -87,7 +87,7 @@ export default class Accounts extends React.Component {
                         list_id={'accounts_list_' + e[0]}
                         contents={
                             List([
-                                <span><img src={service_meta[e[0]].get('icon_url')} alt={e[0]} className='service-icon-img' />{e[0]}</span>,
+                                <span><i className={'service-icon-img fas fa-' + service_meta[e[0]].get('icon')} />{e[0]}</span>,
                                 <SimpleTable key={'accounts_' + e[0] + '_table_wrap'} tid={'accounts_' + e[0] + '_table'} tclass='table table-hover' thead={this.thead} tbody={e[1]} />,
                             ])
                         }
