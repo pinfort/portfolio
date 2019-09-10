@@ -9,7 +9,9 @@
 @import '~bootstrap/scss/bootstrap';
 
 // Font Awesome
-//@import "node_modules/font-awesome-scss/scss/font-awesome.scss";
+@import "node_modules/@fontawesome/fontawesome-free/scss/fontawesome.scss";
+@import "node_modules/@fontawesome/fontawesome-free/scss/brands.scss";
+@import "node_modules/@fontawesome/fontawesome-free/scss/solid.scss";
 
 .navbar-laravel {
   background-color: #fff;
