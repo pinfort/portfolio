@@ -43,7 +43,7 @@ export default class AdvancedColumn extends React.Component {
     }
 
     createIconColumn(content, k) {
-        return <i key={k + '_icon'} className={'fa fa-' + content.get('icon')} />;
+        return <i key={k + '_icon'} className={'fas fa-' + content.get('icon')} />;
     }
 
     render () {

@@ -61,7 +61,7 @@ export default class Accounts extends React.Component {
                     className: 'btn btn-light',
                     children: {
                         type: 'font_awesome',
-                        className: 'fa fa-times',
+                        className: 'fas fa-times',
                     },
                     target_id: row.get('id'),
                 };
