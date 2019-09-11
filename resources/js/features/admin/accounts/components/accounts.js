@@ -102,7 +102,6 @@ export default class Accounts extends React.Component {
                         <AccountsTable key={'accounts_' + e[0] + '_table_wrap'} tid={'accounts_' + e[0] + '_table'} tclass='table table-hover' thead={this.thead} tbody={e[1]} />,
                     ])
                 }
-                l_class='my-1'
             />)
         ));
 
