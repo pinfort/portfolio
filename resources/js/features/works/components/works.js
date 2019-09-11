@@ -101,8 +101,6 @@ export default class Works extends React.Component {
 
         return (
             <div className='card m-3'>
-                <div className='card-header'>Works</div>
-
                 <div key={'main_works'} className='card-body' style={{ overflowX: 'scroll' }}>
                     <SimpleCardDeck cid='main_works_deck' cards={cards} />
                 </div>
