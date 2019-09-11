@@ -63,11 +63,8 @@ export default class Licenses extends React.Component {
         tbody = fromJS(tbody); // to immutable
 
         return (
-            <div className='card m-3'>
-                <div className='card-header'>Licenses</div>
-                <div className='card-body'>
-                    <SimpleTable tid='licenses_table' tclass='table table-hover' thead={this.thead} tbody={tbody} />
-                </div>
+            <div className='m-3'>
+                <SimpleTable tid='licenses_table' tclass='table table-hover' thead={this.thead} tbody={tbody} />
             </div>
         );
     }

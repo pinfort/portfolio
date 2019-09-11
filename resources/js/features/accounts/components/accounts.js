@@ -3,6 +3,7 @@ import { List, Map, fromJS } from 'immutable';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import SimpleTable from 'src/components/table/simple_table';
 import SimpleList from 'src/components/list/simple_list';
+import getFaClassName from "../../../utils/fontawesome_classname_factory";
 
 export default class Accounts extends React.Component {
 
@@ -64,15 +65,15 @@ export default class Accounts extends React.Component {
                 ]);
 
                 if (service_meta['nothing'] === undefined || service_meta['service_name'] === null) {
-                    service_meta['nothing'] = {
+                    service_meta['nothing'] = fromJS({
                         'id':2,
                         'name':'Twitter',
                         'url':'https:\/\/twitter.com',
                         'icon_path':'public\/services\/cgGdziMGtT9faKZbwb2Fb9Mk7SF85aTrU6jLqKo8.png',
                         'created_at':'2018-04-05 16:31:00',
                         'updated_at':'2018-04-05 16:31:00',
-                        'icon_url':'\/storage\/services\/cgGdziMGtT9faKZbwb2Fb9Mk7SF85aTrU6jLqKo8.png',
-                    };
+                        'icon':'twitter',
+                    });
                 }
             }
         }
@@ -87,7 +88,7 @@ export default class Accounts extends React.Component {
                         list_id={'accounts_list_' + e[0]}
                         contents={
                             List([
-                                <span><img src={service_meta[e[0]].get('icon_url')} alt={e[0]} className='service-icon-img' />{e[0]}</span>,
+                                <span><i className={'service-icon-img ' + getFaClassName(service_meta[e[0]].get('icon'))} />{e[0]}</span>,
                                 <SimpleTable key={'accounts_' + e[0] + '_table_wrap'} tid={'accounts_' + e[0] + '_table'} tclass='table table-hover' thead={this.thead} tbody={e[1]} />,
                             ])
                         }
@@ -97,12 +98,8 @@ export default class Accounts extends React.Component {
         ));
 
         return (
-            <div className='card m-3'>
-                <div className='card-header'>Accounts</div>
-
-                <div key={'main_accounts'} className='card-body'>
-                    {lists}
-                </div>
+            <div key={'main_accounts'} className='mx-3'>
+                {lists}
             </div>
         );
     }

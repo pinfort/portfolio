@@ -61,7 +61,7 @@ export default class Accounts extends React.Component {
                     className: 'btn btn-light',
                     children: {
                         type: 'font_awesome',
-                        className: 'fa fa-times',
+                        className: 'fas fa-times',
                     },
                     target_id: row.get('id'),
                 };
@@ -106,12 +106,8 @@ export default class Accounts extends React.Component {
         ));
 
         return (
-            <div className='card m-3'>
-                <div className='card-header'>Accounts</div>
-
-                <div key={'main_accounts'} className='card-body'>
-                    {lists}
-                </div>
+            <div key={'main_accounts'} className='mx-3'>
+                {lists}
             </div>
         );
     }

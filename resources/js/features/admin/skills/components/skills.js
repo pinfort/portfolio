@@ -90,16 +90,13 @@ export default class Skills extends React.Component {
                         <SkillsTable key={'skills_' + e[0] + '_table_wrap'} tid={'skills_' + e[0] + '_table'} tclass='table table-hover' thead={this.thead} tbody={e[1]} />,
                     ])
                 }
+                l_class='my-3'
             />)
         ));
 
         return (
-            <div className='card m-3'>
-                <div className='card-header'>Skills</div>
-
-                <div key={'main_skills'} className='card-body'>
-                    {lists}
-                </div>
+            <div key={'main_skills'} className='m-3'>
+                {lists}
             </div>
         );
     }

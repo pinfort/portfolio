@@ -98,8 +98,6 @@ export default class Works extends React.Component {
 
         return (
             <div className='card m-3'>
-                <div className='card-header'>Works</div>
-
                 <div key={'main_works'} className='card-body'>
                     <WorksTable tid='works_table' tclass='table table-hover' thead={this.thead} tbody={tbody} />
                 </div>

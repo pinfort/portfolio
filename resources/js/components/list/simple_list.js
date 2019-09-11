@@ -8,13 +8,14 @@ export default class SimpleList extends React.Component {
     static propTypes = {
         list_id: PropTypes.string.isRequired,
         contents: ImmutablePropTypes.list.isRequired,
+        l_class: PropTypes.string,
     }
 
     render () {
-        const { list_id, contents } = this.props;
+        const { list_id, contents, l_class } = this.props;
 
         return (
-            <ul id={list_id} className='list-group' key={list_id}>
+            <ul id={list_id} className={'list-group ' + (l_class || '')} key={list_id}>
                 {contents.map((content, i) =>
                     <SimpleLine key={list_id + '_simple_line_' + i} k={list_id + '_simple_line_li_' + i} content={content} />
                 )}

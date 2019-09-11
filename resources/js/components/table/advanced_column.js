@@ -3,6 +3,7 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 import PropTypes from 'prop-types';
 import SimpleForm from 'src/components/form/simple_form';
 import SimpleButton from 'src/components/form/simple_button';
+import getFaClassName from "../../utils/fontawesome_classname_factory";
 
 export default class AdvancedColumn extends React.Component {
 
@@ -20,6 +21,8 @@ export default class AdvancedColumn extends React.Component {
             return this.createButtonColumn(content, k);
         } else if (content.get('type') === 'image'){
             return this.createImageColumn(content, k);
+        } else if (content.get('type') === 'icon'){
+            return this.createIconColumn(content, k);
         }
         return content;
     }
@@ -38,6 +41,10 @@ export default class AdvancedColumn extends React.Component {
 
     createImageColumn(content, k) {
         return <img key={k + '_simple_img'} src={content.get('src')} alt={content.get('alt')} className={content.get('class')} />;
+    }
+
+    createIconColumn(content, k) {
+        return <i key={k + '_icon'} className={getFaClassName(content.get('icon'))} />;
     }
 
     render () {

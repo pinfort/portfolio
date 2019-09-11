@@ -18,10 +18,8 @@ class ServicesController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'url' => 'required|string|max:255',
-            'icon' => 'image|required',
+            'icon' => 'required|string|max:255',
         ]);
-        $icon_path = $request->file('icon')->store('public/services');
-        $validatedData['icon_path'] = $icon_path;
         $created = Service::create($validatedData);
         $data = [
             'status' => 200,
