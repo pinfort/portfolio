@@ -94,12 +94,8 @@ export default class Skills extends React.Component {
         ));
 
         return (
-            <div className='card m-3'>
-                <div className='card-header'>Skills</div>
-
-                <div key={'main_skills'} className='card-body'>
-                    {lists}
-                </div>
+            <div key={'main_skills'} className='m-3'>
+                {lists}
             </div>
         );
     }
