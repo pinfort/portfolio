@@ -3,6 +3,7 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 import PropTypes from 'prop-types';
 import SimpleForm from 'src/components/form/simple_form';
 import SimpleButton from 'src/components/form/simple_button';
+import getFaClassName from "../../utils/fontawesome_classname_factory";
 
 export default class AdvancedColumn extends React.Component {
 
@@ -43,7 +44,7 @@ export default class AdvancedColumn extends React.Component {
     }
 
     createIconColumn(content, k) {
-        return <i key={k + '_icon'} className={'fas fa-' + content.get('icon')} />;
+        return <i key={k + '_icon'} className={getFaClassName(content.get('icon'))} />;
     }
 
     render () {
