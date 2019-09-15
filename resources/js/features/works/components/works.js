@@ -100,9 +100,12 @@ export default class Works extends React.Component {
         cards = fromJS(cards); // to immutable
 
         return (
-            <div className='card m-3'>
-                <div key={'main_works'} className='card-body' style={{ overflowX: 'scroll' }}>
-                    <SimpleCardDeck cid='main_works_deck' cards={cards} />
+            <div className='m-3'>
+                <p>Works</p>
+                <div className='card'>
+                    <div key={'main_works'} className='card-body' style={{ overflowX: 'scroll' }}>
+                        <SimpleCardDeck cid='main_works_deck' cards={cards} />
+                    </div>
                 </div>
             </div>
         );

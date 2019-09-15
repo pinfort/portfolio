@@ -64,6 +64,7 @@ export default class Licenses extends React.Component {
 
         return (
             <div className='m-3'>
+                <p>Licenses</p>
                 <SimpleTable tid='licenses_table' tclass='table table-hover' thead={this.thead} tbody={tbody} />
             </div>
         );

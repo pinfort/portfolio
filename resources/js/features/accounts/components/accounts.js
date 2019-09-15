@@ -99,6 +99,7 @@ export default class Accounts extends React.Component {
 
         return (
             <div key={'main_accounts'} className='mx-3'>
+                <p>Accounts</p>
                 {lists}
             </div>
         );
