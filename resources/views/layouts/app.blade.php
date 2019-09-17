@@ -40,18 +40,18 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                @guest
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="//blog.pinfort.me">Blog</a>
+                        </li>
+                    </ul>
+                @else
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    @guest
-                        <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item">
-                                <a class="nav-link" href="//blog.pinfort.me">Blog</a>
-                            </li>
-                        </ul>
-                    @else
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
                         @include('LaravelTopNav::menu')
 
@@ -76,8 +76,8 @@
                                 </div>
                             </li>
                         </ul>
-                    @endguest
-                </div>
+                    </div>
+                @endguest
             </div>
         </nav>
 
