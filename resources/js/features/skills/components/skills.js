@@ -81,7 +81,7 @@ export default class Skills extends React.Component {
 
         return (
             <div key={'main_skills'} className='m-3'>
-                <p>Skills</p>
+                <h3 className='text-center'>Skills</h3>
                 {lists}
             </div>
         );

@@ -18,7 +18,7 @@ export default class Introduction extends React.Component {
 
         return (
             <div className='m-3'>
-                <p>Introduction</p>
+                <h3 className='text-center'>Introduction</h3>
                 {introduction || 'Introduction placeholder'}
             </div>
         );

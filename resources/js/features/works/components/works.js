@@ -101,7 +101,7 @@ export default class Works extends React.Component {
 
         return (
             <div className='m-3'>
-                <p>Works</p>
+                <h3 className='text-center'>Works</h3>
                 <div className='card'>
                     <div key={'main_works'} className='card-body' style={{ overflowX: 'scroll' }}>
                         <SimpleCardDeck cid='main_works_deck' cards={cards} />
