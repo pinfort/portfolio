@@ -72,7 +72,7 @@ export default class Skills extends React.Component {
                 contents={
                     List([
                         e[0],
-                        <SimpleTable key={'skills_' + e[0] + '_table_wrap'} tid={'skills_' + e[0] + '_table'} tclass='table table-hover' thead={this.thead} tbody={e[1]} />,
+                        <SimpleTable key={'skills_' + e[0] + '_table_wrap'} tid={'skills_' + e[0] + '_table'} tclass='table' thead={this.thead} tbody={e[1]} />,
                     ])
                 }
                 l_class='my-3'
