@@ -17,7 +17,7 @@ export default class Portfolio extends React.Component {
     render () {
         return (
             <Switch>
-                <Route path={laroute.route('home')} component={HomePage} />
+                <Route exact path={laroute.route('home')} component={HomePage} />
                 <Route path={laroute.route('admin_licenses')} component={AdminLicensesPage} />
                 <Route exact path={laroute.route('admin_skills')} component={AdminSkillsPage} />
                 <Route exact path={laroute.route('admin_skill_categories')} component={AdminSkillCategoriesPage} />
