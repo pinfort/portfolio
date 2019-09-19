@@ -11,13 +11,6 @@
 |
 */
 
-Route::get(
-    '/',
-    function () {
-        return redirect('/home');
-    }
-);
-
 Route::group(
     ['prefix' => 'auth'],
     function () {
@@ -29,21 +22,9 @@ Route::group(
 Route::group(
     ['laroute' => true],
     function () {
-        Route::get('/home', function () {
+        Route::get('/', function () {
             return view('index');
         })->name('home');
-        Route::get('/licenses', function () {
-            return view('index');
-        })->name('licenses');
-        Route::get('/skills', function () {
-            return view('index');
-        })->name('skills');
-        Route::get('/works', function () {
-            return view('index');
-        })->name('works');
-        Route::get('/accounts', function () {
-            return view('index');
-        })->name('accounts');
         Route::get('/works/{id}', function () {
             return view('index');
         })->name('work_detail');
