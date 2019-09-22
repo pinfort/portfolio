@@ -55,13 +55,13 @@ export default class Accounts extends React.Component {
         if (account_objs.length === 0) {
             account_objs.push(
                 <li style={{ flexBasis: '50%', display: 'flex', height: '50px' }}>
-                    <a href={'https://example.com'}>
-                        <div style={{ minWidth: '40px', margin: 'auto 0' }}>
+                    <a href={'https://example.com'} style={{ display: 'flex', color: 'inherit', width: '100%' }}>
+                        <div style={{ minWidth: '40px', margin: 'auto 0px' }}>
                             <i className={'fa-2x ' + getFaClassName('twitter')} />
                         </div>
-                        <div style={{ margin: 'auto 0' }}>
+                        <div style={{ margin: 'auto 0px' }}>
                             <div key={'service_name'}>Twitter</div>
-                            <div key={'user_name'}>test_user</div>
+                            <div key={'user_name'} style={{ color: 'gray' }}>test_user</div>
                         </div>
                     </a>
                 </li>
