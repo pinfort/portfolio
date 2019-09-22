@@ -22,30 +22,32 @@ export default class Accounts extends React.Component {
 
                 // <サービスアイコン>
                 const service_fa_name = row.get('service').get('icon');
-                const service_fa_obj = <span><i className={'service-icon-img ' + getFaClassName(service_fa_name)} /></span>;
+                const service_fa_obj = (<div className='account-item-icon'>
+                    <i className={'fa-2x ' + getFaClassName(service_fa_name)} />
+                </div>);
                 //</サービスアイコン>
 
                 // <サービス名>
                 const service_name = row.get('service').get('name');
-                const service_name_obj = <div>{service_name}</div>;
+                const service_name_obj = <div key={'service_name'}>{service_name}</div>;
                 // </サービス名>
 
                 // <ユーザー名>
                 const name = row.get('user_name');
-                const name_obj = <div>{name}</div>;
+                const name_obj = <div key={'user_name'} className='account-item-username'>{name}</div>;
                 // </ユーザー名>
 
                 // <レイアウト>
                 const account_obj = (
-                    <a href={row.get('user_page_link')}>
-                        <div>
+                    <li className='account-item'>
+                        <a href={row.get('user_page_link')}>
                             {service_fa_obj}
-                            <span>
+                            <div>
                                 {service_name_obj}
                                 {name_obj}
-                            </span>
-                        </div>
-                    </a>);
+                            </div>
+                        </a>
+                    </li>);
                 // </レイアウト>
 
                 account_objs.push(account_obj);
@@ -54,14 +56,14 @@ export default class Accounts extends React.Component {
 
         if (account_objs.length === 0) {
             account_objs.push(
-                <li style={{ flexBasis: '50%', display: 'flex', height: '50px' }}>
-                    <a href={'https://example.com'} style={{ display: 'flex', color: 'inherit', width: '100%' }}>
-                        <div style={{ minWidth: '40px', margin: 'auto 0px' }}>
+                <li className='account-item'>
+                    <a href={'https://example.com'}>
+                        <div className='account-item-icon'>
                             <i className={'fa-2x ' + getFaClassName('twitter')} />
                         </div>
-                        <div style={{ margin: 'auto 0px' }}>
+                        <div>
                             <div key={'service_name'}>Twitter</div>
-                            <div key={'user_name'} style={{ color: 'gray' }}>test_user</div>
+                            <div key={'user_name'} className='account-item-username'>test_user</div>
                         </div>
                     </a>
                 </li>
