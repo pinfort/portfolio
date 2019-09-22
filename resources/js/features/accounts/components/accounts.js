@@ -73,7 +73,7 @@ export default class Accounts extends React.Component {
         return (
             <div key={'main_accounts'} className='mx-3'>
                 <h3 className='text-center'>Accounts</h3>
-                <ul style={{ display: 'flex', listStyle: 'none', padding: '0', flexWrap: 'wrap' }}>
+                <ul className='account-list'>
                     {account_objs}
                 </ul>
             </div>
