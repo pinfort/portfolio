@@ -1,9 +1,6 @@
 import React from 'react';
-import { List, Map, fromJS } from 'immutable';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import SimpleTable from 'src/components/table/simple_table';
-import SimpleList from 'src/components/list/simple_list';
-import getFaClassName from "../../../utils/fontawesome_classname_factory";
+import getFaClassName from '../../../utils/fontawesome_classname_factory';
 
 export default class Accounts extends React.Component {
 
