@@ -65,6 +65,12 @@ class Deploy extends Command
             return 1;
         }
 
+        $this->info('generating laroutejs');
+        if ($this->call('laroute:generate') !== 0) {
+            $this->error('failed to generate laroute');
+            return 1;
+        }
+
         $this->info('building javaScript');
         exec('yarn run prod', $out, $return_var);
         if ($return_var !== 0) {
