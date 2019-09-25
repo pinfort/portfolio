@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 
 class Deploy extends Command
 {
@@ -81,6 +82,20 @@ class Deploy extends Command
         }
         unset($out);
         unset($return_var);
+
+        $this->info('deploy finished.');
         return 0;
+    }
+
+    public function info($string, $verbosity = null)
+    {
+        Log::info($string);
+        parent::info($string, $verbosity);
+    }
+
+    public function error($string, $verbosity = null)
+    {
+        Log::error($string);
+        parent::error($string, $verbosity);
     }
 }
