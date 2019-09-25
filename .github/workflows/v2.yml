@@ -34,7 +34,7 @@ jobs:
         run: yarn run dev
 
       - name: Trigger beta deploy
-        run: curl ${BETA_HOST}/api/dev_ops/auto_deploy?deploy_token=${DEPLOY_TOKEN}
+        run: curl --fail ${BETA_HOST}/api/dev_ops/auto_deploy?deploy_token=${DEPLOY_TOKEN}
         env:
           BETA_HOST: ${{ secrets.BETA_HOST }}
           DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
