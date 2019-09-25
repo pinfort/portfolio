@@ -49,6 +49,9 @@ class Deploy extends Command
         unset($out);
         unset($return_var);
 
+        $this->info('checked out branch');
+        $this->info(shell_exec('git show --oneline -s'));
+
         $this->info('pulling new data from github.');
         exec('git pull origin '.$this->argument('branch'), $out, $return_var);
         if ($return_var !== 0) {
@@ -59,6 +62,9 @@ class Deploy extends Command
         }
         unset($out);
         unset($return_var);
+
+        $this->info('pull data finished');
+        $this->info(shell_exec('git show --oneline -s'));
 
         $this->info('migrating database');
         if ($this->call('migrate') !== 0) {
