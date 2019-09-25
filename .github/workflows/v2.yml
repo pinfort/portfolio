@@ -6,7 +6,7 @@ on:
       - feature-v2
 
 jobs:
-  prepare:
+  build:
 
     runs-on: ubuntu-latest
 
@@ -24,24 +24,15 @@ jobs:
       - name: Generate Laroute info
         run: php artisan laroute:generate
 
-  php:
-    needs: prepare
-    steps:
       - name: Run PHPUnit
         run: ./vendor/bin/phpunit
 
-  js:
-    needs: prepare
-    steps:
       - name: Run yarn install
         run: yarn install
 
       - name: Build Javascript
         run: yarn run dev
 
-  deploy:
-    needs: [php, js]
-    steps:
       - name: Trigger beta deploy
         run: curl ${BETA_HOST}/api/dev_ops/auto_deploy?deploy_token=${DEPLOY_TOKEN}
         env:
