@@ -47,3 +47,5 @@ Route::get('/user/introduction', 'Api\UserController@introduction');
 
 Route::get('/works/{id}', 'Api\WorksController@show');
 Route::get('/tags/{id}', 'Api\TagsController@show');
+
+Route::get('/dev_ops/auto_deploy', 'Api\DevOps\AutoDeployController@index');
