@@ -38,6 +38,8 @@ class Deploy extends Command
      */
     public function handle()
     {
+        $app_wd = getcwd();
+        chdir(base_path());
         $this->info('checking out branch to '.$this->argument('branch'));
         exec('git checkout origin/'.$this->argument('branch'), $out, $return_var);
         if ($return_var !== 0) {
@@ -90,6 +92,7 @@ class Deploy extends Command
         unset($return_var);
 
         $this->info('deploy finished.');
+        chdir($app_wd);
         return 0;
     }
 
