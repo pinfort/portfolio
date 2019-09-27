@@ -1,7 +1,6 @@
 import React from 'react';
 import { List, Map, fromJS } from 'immutable';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import SimpleCardDeck from 'src/components/cards/simple_card_deck';
 import SimpleCard from '../../../components/cards/simple_card';
 
 export default class Works extends React.Component {
@@ -23,7 +22,6 @@ export default class Works extends React.Component {
             works.map(row => {
                 let formatted_card = {};
                 let formatted_card_body = [];
-                let formatted_card_foot = [];
 
                 // <名称>
                 const name = row.get('name');
@@ -47,24 +45,13 @@ export default class Works extends React.Component {
                 formatted_card_body.push(url_obj);
                 // </詳細ページ>
 
-                // <タグ>
-                const tags = row.get('tags');
-                tags.forEach((tag) => {
-                    formatted_card_foot.push(tag.get('name'));
-                });
-                // </タグ>
-
                 formatted_card.body = formatted_card_body;
-                formatted_card.foot = formatted_card_foot;
                 cards.push(formatted_card);
             });
         } else {
             cards.push({
                 body: [
                     { type: 'txt', 'txt': 'None' },
-                ],
-                foot: [
-                    'None',
                 ],
             });
         }

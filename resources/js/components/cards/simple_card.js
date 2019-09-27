@@ -65,7 +65,7 @@ export default class SimpleCard extends React.Component {
         return (
             <div className={'card ' + className + ' mx-2 mb-2'} style={{ width: '15rem' }}>
                 {this.createCbody(cid, card.get('body'))}
-                {this.createCfoot(cid, card.get('foot'))}
+                {card.has('foot') && this.createCfoot(cid, card.get('foot'))}
             </div>
         );
     }
