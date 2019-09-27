@@ -17,13 +17,6 @@ export default class Skills extends React.Component {
         }
     }
 
-    thead = List.of(
-        List.of(
-            Map({ 'isTitle': true, 'isLink': false, 'txt': '名称' }),
-            Map({ 'isTitle': true, 'isLink': false, 'txt': '程度' }),
-        )
-    );
-
     render() {
         const { skills } = this.props;
         let categories = {};
@@ -72,7 +65,7 @@ export default class Skills extends React.Component {
                 contents={
                     List([
                         e[0],
-                        <SimpleTable key={'skills_' + e[0] + '_table_wrap'} tid={'skills_' + e[0] + '_table'} tclass='table' thead={this.thead} tbody={e[1]} />,
+                        <SimpleTable key={'skills_' + e[0] + '_table_wrap'} tid={'skills_' + e[0] + '_table'} tclass='table' tbody={e[1]} />,
                     ])
                 }
                 l_class='my-3'
