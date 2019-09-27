@@ -81,3 +81,13 @@
 .main-body {
     max-width: 900px;
 }
+
+#works-body div div {
+    position: relative;
+}
+
+#works-body div div a {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
