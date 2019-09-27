@@ -74,12 +74,10 @@ export default class Works extends React.Component {
         return (
             <div className='m-3'>
                 <h3 className='text-center'>Works</h3>
-                <div className='card'>
-                    <div key={'main_works'} className='card-body flex-wrap' style={{ display: 'flex' }}>
-                        {cards.map((card, i) => {
-                            return <SimpleCard key={'work_card_' + i + '_wrap'} cid={'work_card_' + i} card={card} />;
-                        })}
-                    </div>
+                <div key={'main_works'} className='card-body flex-wrap' style={{ display: 'flex' }}>
+                    {cards.map((card, i) => {
+                        return <SimpleCard key={'work_card_' + i + '_wrap'} cid={'work_card_' + i} card={card} />;
+                    })}
                 </div>
             </div>
         );
