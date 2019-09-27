@@ -82,7 +82,6 @@ class Deploy extends Command
 
         $this->info('building javaScript');
         exec('yarn run prod', $out, $return_var);
-        echo $return_var;
         if ($return_var !== 0) {
             $this->error('failed to build javaScript');
             unset($out);
