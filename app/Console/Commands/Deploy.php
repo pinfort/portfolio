@@ -68,17 +68,6 @@ class Deploy extends Command
         $this->info('pull data finished');
         $this->info(shell_exec('git show --oneline -s'));
 
-        $this->info('install php dependencies');
-        exec('composer install', $out, $return_var);
-        if ($return_var !== 0) {
-            $this->error('failed to install php dependencies');
-            unset($out);
-            unset($return_var);
-            return 1;
-        }
-        unset($out);
-        unset($return_var);
-
         $this->info('migrating database');
         if ($this->call('migrate') !== 0) {
             $this->error('failed to migrate database');
@@ -91,21 +80,8 @@ class Deploy extends Command
             return 1;
         }
 
-        $this->info('install js dependencies');
-        exec('yarn install', $out, $return_var);
-        if ($return_var !== 0) {
-            $this->error('failed to install js dependencies');
-            unset($out);
-            unset($return_var);
-            return 1;
-        }
-        unset($out);
-        unset($return_var);
-
         $this->info('building javaScript');
         exec('yarn run prod', $out, $return_var);
-        $this->info($return_var);
-        $this->info(base_path());
         if ($return_var !== 0) {
             $this->error('failed to build javaScript');
             unset($out);
