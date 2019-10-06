@@ -44,7 +44,7 @@ class Deploy extends Command
         exec('git checkout '.$this->argument('branch'), $out, $return_var);
         if ($return_var !== 0) {
             $this->error('failed to checking out branch '.$this->argument('branch'));
-            $this->error($out);
+            $this->error(implode('\n', $out));
             unset($out);
             unset($return_var);
             return 1;
@@ -86,7 +86,7 @@ class Deploy extends Command
         exec('yarn run prod', $out, $return_var);
         if ($return_var !== 0) {
             $this->error('failed to build javaScript');
-            $this->error($out);
+            $this->error(implode('\n', $out));
             unset($out);
             unset($return_var);
             return 1;
