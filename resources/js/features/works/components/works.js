@@ -66,8 +66,6 @@ export default class Works extends React.Component {
             </div>);
         }
 
-        cards = fromJS(cards); // to immutable
-
         return (
             <div className='m-3'>
                 <h3 className='text-center'>Works</h3>
