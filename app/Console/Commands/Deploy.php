@@ -89,6 +89,7 @@ class Deploy extends Command
         }
 
         $this->info('building javaScript');
+        shell_exec('/home/nijitei/opt/yarn/bin/yarn run prod');
         exec('/home/nijitei/opt/yarn/bin/yarn run prod', $out, $return_var);
         if ($return_var !== 0) {
             $this->error('failed to build javaScript');

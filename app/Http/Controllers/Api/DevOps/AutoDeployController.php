@@ -19,9 +19,7 @@ class AutoDeployController extends Controller
 
         // $job = new Process(PHP_BINARY.' '.base_path('artisan').' deploy '.config('dev_ops.branch'));
         // $job->start();
-        \Artisan::call('deploy', ['branch' => config('dev_ops.branch')]);
-        return response()->json([
-            'result'=> 'accepted',
-        ]);
+        return response(\Artisan::call('deploy', ['branch' => config('dev_ops.branch')]),
+            200)->header('Content-Type', 'text/plain');
     }
 }
