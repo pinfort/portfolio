@@ -65,7 +65,7 @@ export default class Skills extends React.Component {
                 contents={
                     List([
                         e[0],
-                        <SimpleTable key={'skills_' + e[0] + '_table_wrap'} tid={'skills_' + e[0] + '_table'} tclass='table' tbody={e[1]} />,
+                        <SimpleTable key={'skills_' + e[0] + '_table_wrap'} tid={'skills_' + e[0] + '_table'} tclass='table table-borderless' tbody={e[1]} />,
                     ])
                 }
                 l_class='my-3'
@@ -73,7 +73,7 @@ export default class Skills extends React.Component {
         ));
 
         return (
-            <div key={'main_skills'} className='m-3'>
+            <div key={'main_skills'} id={'main-skills'} className='m-3'>
                 <h3 className='text-center'>Skills</h3>
                 {lists}
             </div>
