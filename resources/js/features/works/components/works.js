@@ -23,7 +23,7 @@ export default class Works extends React.Component {
             works.map(row => {
                 // <名称>
                 const name = row.get('name');
-                const card_name = (<h5 key={'work_card_title'} className='card-title'>{name}</h5>);
+                const card_name = (<h4 key={'work_card_title'} className='card-title'>{name}</h4>);
                 // </名称>
 
                 // <説明>
@@ -56,7 +56,7 @@ export default class Works extends React.Component {
             cards.push(<div className={'card mx-2 mb-3'} style={{ width: '15rem' }}>
                 <Link key={'work_card_link'} to={''}>
                     <div className='card-body' key={'work_card_body'}>
-                        <h5 key={'work_card_title'} className='card-title'>none</h5>
+                        <h4 key={'work_card_title'} className='card-title'>none</h4>
                         <p key={'work_card_text'} className='card-text'>desc</p>
                     </div>
                 </Link>
