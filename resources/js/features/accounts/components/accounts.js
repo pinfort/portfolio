@@ -39,7 +39,7 @@ export default class Accounts extends React.Component {
 
                 // <レイアウト>
                 const account_obj = (
-                    <li className='account-item'>
+                    <li className='account-item mb-2'>
                         <a href={row.get('user_page_link')}>
                             {service_fa_obj}
                             <div>
@@ -56,7 +56,7 @@ export default class Accounts extends React.Component {
 
         if (account_objs.length === 0) {
             account_objs.push(
-                <li className='account-item'>
+                <li className='account-item mb-2'>
                     <a href={'https://example.com'}>
                         <div className='account-item-icon'>
                             <i className={'fa-2x ' + getFaClassName('twitter')} />
