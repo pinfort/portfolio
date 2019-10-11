@@ -74,6 +74,8 @@ export default class TagDetail extends React.Component {
             <div className='row justify-content-center'>
                 <div className='col-md-10'>
                     <div className='m-3'>
+                        <h3 className='text-center'>{tag ? tag.get('name') : 'None'}</h3>
+
                         <div id='main-tag' key='main_tag' className='flex-wrap'>
                             {cards}
                         </div>
