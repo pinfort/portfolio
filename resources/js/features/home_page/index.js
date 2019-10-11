@@ -12,21 +12,21 @@ export default class HomePage extends React.Component {
         return (
             <div className='align-content-center'>
                 <h1 className='text-center'>Pinfort</h1>
-                <article>
+                <section>
                     <Introduction />
-                </article>
-                <article>
+                </section>
+                <section>
                     <Skills />
-                </article>
-                <article>
+                </section>
+                <section>
                     <Licenses />
-                </article>
-                <article>
+                </section>
+                <section>
                     <Works />
-                </article>
-                <article>
+                </section>
+                <section>
                     <Accounts />
-                </article>
+                </section>
             </div>
         );
     }
