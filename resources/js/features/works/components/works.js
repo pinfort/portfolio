@@ -36,17 +36,15 @@ export default class Works extends React.Component {
 
                 // <詳細ページ>
                 const id = row.get('id');
-                const card_link = (<Link key={'work_card_link'} className={'btn btn-primary'} to={'/works/' + id}>{'詳しく'}</Link>);
                 // </詳細ページ>
 
                 const card_body = (
-                    <div className='card-body' key={'work_card_body'}>
-                        <div>
+                    <Link key={'work_card_link'} to={'/works/' + id}>
+                        <div className='card-body' key={'work_card_body'}>
                             {card_name}
                             {card_desc}
                         </div>
-                        {card_link}
-                    </div>
+                    </Link>
                 );
                 cards.push(
                     <div className={'card mx-2 mb-3'} style={{ width: '15rem' }}>
@@ -56,13 +54,12 @@ export default class Works extends React.Component {
             });
         } else {
             cards.push(<div className={'card mx-2 mb-3'} style={{ width: '15rem' }}>
-                <div className='card-body' key={'work_card_body'}>
-                    <div>
+                <Link key={'work_card_link'} to={''}>
+                    <div className='card-body' key={'work_card_body'}>
                         <h5 key={'work_card_title'} className='card-title'>none</h5>
                         <p key={'work_card_text'} className='card-text'>desc</p>
                     </div>
-                    <Link key={'work_card_link'} className={'btn btn-primary disabled'} to={''}>{'詳しく'}</Link>
-                </div>
+                </Link>
             </div>);
         }
 
