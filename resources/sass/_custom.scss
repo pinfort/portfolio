@@ -82,6 +82,11 @@
     max-width: 900px;
 }
 
+#works-body {
+    display: flex;
+    justify-content: center;
+}
+
 #works-body div div {
     display: flex;
     flex-direction: column;
