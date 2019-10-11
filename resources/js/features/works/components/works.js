@@ -1,8 +1,6 @@
 import React from 'react';
-import { List, Map, fromJS } from 'immutable';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import SimpleCard from '../../../components/cards/simple_card';
-import {Link} from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 export default class Works extends React.Component {
 
