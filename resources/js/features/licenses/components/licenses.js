@@ -15,13 +15,6 @@ export default class Licenses extends React.Component {
         }
     }
 
-    thead = List.of(
-        List.of(
-            Map({ 'isTitle': true, 'isLink': false, 'txt': '取得年月' }),
-            Map({ 'isTitle': true, 'isLink': false, 'txt': '資格' }),
-        )
-    );
-
     render() {
         const { licenses } = this.props;
         let tbody = [];
@@ -64,7 +57,8 @@ export default class Licenses extends React.Component {
 
         return (
             <div className='m-3'>
-                <SimpleTable tid='licenses_table' tclass='table table-hover' thead={this.thead} tbody={tbody} />
+                <h3 className='text-center'>Licenses</h3>
+                <SimpleTable tid='licenses_table' tclass='table' tbody={tbody} />
             </div>
         );
     }

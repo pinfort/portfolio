@@ -50,9 +50,9 @@ export default class WorkDetail extends React.Component {
             let url_obj;
             if (url === '') {
                 url_obj = { type: 'link', link: '#', link_disable: true, txt: '非公開' };
-                url_obj = <a class='btn btn-primary' href='#' role='button' disabled>非公開</a>;
+                url_obj = <a className='btn btn-primary' href='#' role='button' disabled>非公開</a>;
             } else {
-                url_obj = <a class='btn btn-primary' href={url} role='button'>Go the site</a>;
+                url_obj = <a className='btn btn-primary' href={url} role='button'>Go the site</a>;
             }
             data.url_obj = url_obj;
             // </URL>
@@ -61,7 +61,7 @@ export default class WorkDetail extends React.Component {
             data.tags = [];
             const tags = work.get('tags');
             tags.forEach((tag, i) => {
-                data.tags.push(<SimpleLink key={'mytest_work_tags_' + i} className='badge badge-primary mx-1' to={'/tags/' + tag.get('id')} content={tag.get('name')} />);
+                data.tags.push(<SimpleLink key={'mytest_work_tags_' + i} className='badge badge-primary mx-1' to={'/tags/' + tag.get('id')} content={tag.get('name')} is_external={false} />);
             });
             // </タグ>
         }
