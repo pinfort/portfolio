@@ -17,7 +17,6 @@ export default class SimpleCardDeck extends React.Component {
                 {cards.map((card, i) => {
                     return <SimpleCard key={cid + '_card_' + i + '_wrap'} cid={cid + '_card_' + i} card={card} />;
                 })}
-                <div className='p-1' />
             </div>
         );
     }

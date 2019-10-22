@@ -11,14 +11,6 @@ export default class SimpleCard extends React.Component {
         className: PropTypes.string,
     }
 
-    createCimg(cid, content) {
-        return (
-            <div className='card-top-img'>
-                <img key={cid + '_img'} className='card-img-top' src={content.get('src')} alt={content.get('alt')} />
-            </div>
-        );
-    }
-
     createCbody(cid, contents) {
         return (
             <div className='card-body' key={cid + '_body'}>
@@ -71,10 +63,9 @@ export default class SimpleCard extends React.Component {
     render () {
         const { cid, card, className } = this.props;
         return (
-            <div className={'card ' + className} style={{ width: '18rem', flexShrink: 0, flexGrow: 0, flexBasis: 'auto' }}>
-                {this.createCimg(cid, card.get('img'))}
+            <div className={'card ' + className + ' mx-2 mb-3'} style={{ width: '15rem' }}>
                 {this.createCbody(cid, card.get('body'))}
-                {this.createCfoot(cid, card.get('foot'))}
+                {card.has('foot') && this.createCfoot(cid, card.get('foot'))}
             </div>
         );
     }

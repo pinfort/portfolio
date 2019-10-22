@@ -1,0 +1,40 @@
+name: Automatic deploy
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Run composer install
+        run: composer install
+
+      - name: setup .env
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+
+      - name: Generate Laroute info
+        run: php artisan laroute:generate
+
+      - name: Run PHPUnit
+        run: ./vendor/bin/phpunit
+
+      - name: Run yarn install
+        run: yarn install
+
+      - name: Build Javascript
+        run: yarn run dev
+
+      - name: Trigger beta deploy
+        run: curl --fail ${BETA_HOST}/api/dev_ops/auto_deploy?deploy_token=${DEPLOY_TOKEN}
+        env:
+          BETA_HOST: ${{ secrets.BETA_HOST }}
+          DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}

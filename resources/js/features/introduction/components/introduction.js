@@ -17,11 +17,9 @@ export default class Introduction extends React.Component {
         const { introduction } = this.props;
 
         return (
-            <div className='card m-3'>
-                <div className='card-header'>Introduction</div>
-                <div className='card-body'>
-                    {introduction}
-                </div>
+            <div className='m-3 text-center'>
+                <h3>Introduction</h3>
+                {introduction || 'Introduction placeholder'}
             </div>
         );
     }
