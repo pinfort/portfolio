@@ -3,7 +3,7 @@ name: Automatic deploy
 on:
   push:
     branches:
-      - feature-v2
+      - develop
 
 jobs:
   build:
