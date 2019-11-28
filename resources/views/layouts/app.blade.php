@@ -25,7 +25,6 @@
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/TopNav/top_nav.css') }}" rel="stylesheet">
-    <script data-ad-client="ca-pub-7789044462184398" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 <body>
     <div id="app">
