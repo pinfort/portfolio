@@ -77,7 +77,9 @@ class Deploy extends Command
         $this->info(shell_exec('git show --oneline -s'));
 
         $this->info('migrating database');
-        if ($this->call('migrate') !== 0) {
+        if ($this->call('migrate', [
+            '--force' => true,
+        ]) !== 0) {
             $this->error('failed to migrate database');
             return 1;
         }
