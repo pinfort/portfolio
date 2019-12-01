@@ -1,4 +1,4 @@
-name: Automatic production deploy
+name: production deploy
 
 on:
   push:
@@ -33,7 +33,7 @@ jobs:
       - name: Build Javascript
         run: yarn run dev
 
-      - name: Trigger beta deploy
+      - name: Trigger deploy
         run: curl --fail ${PROD_HOST}/api/dev_ops/auto_deploy?deploy_token=${PROD_DEPLOY_TOKEN}
         env:
           PROD_HOST: ${{ secrets.PROD_HOST }}
