@@ -1,4 +1,4 @@
-name: Production Automatic deploy
+name: Automatic production deploy
 
 on:
   push:
