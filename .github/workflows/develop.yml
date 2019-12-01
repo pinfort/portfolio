@@ -1,4 +1,4 @@
-name: Automatic deploy
+name: develop deploy
 
 on:
   push:
@@ -33,7 +33,7 @@ jobs:
       - name: Build Javascript
         run: yarn run dev
 
-      - name: Trigger beta deploy
+      - name: Trigger deploy
         run: curl --fail ${BETA_HOST}/api/dev_ops/auto_deploy?deploy_token=${DEPLOY_TOKEN}
         env:
           BETA_HOST: ${{ secrets.BETA_HOST }}
