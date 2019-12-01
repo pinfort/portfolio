@@ -1,9 +1,9 @@
-name: Automatic deploy
+name: Production Automatic deploy
 
 on:
   push:
     branches:
-      - develop
+      - master
 
 jobs:
   build:
@@ -34,7 +34,7 @@ jobs:
         run: yarn run dev
 
       - name: Trigger beta deploy
-        run: curl --fail ${BETA_HOST}/api/dev_ops/auto_deploy?deploy_token=${DEPLOY_TOKEN}
+        run: curl --fail ${PROD_HOST}/api/dev_ops/auto_deploy?deploy_token=${PROD_DEPLOY_TOKEN}
         env:
-          BETA_HOST: ${{ secrets.BETA_HOST }}
-          DEPLOY_TOKEN: ${{ secrets.BETA_DEPLOY_TOKEN }}
+          PROD_HOST: ${{ secrets.PROD_HOST }}
+          PROD_DEPLOY_TOKEN: ${{ secrets.PROD_DEPLOY_TOKEN }}
