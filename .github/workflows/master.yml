@@ -1,0 +1,40 @@
+name: Production Automatic deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Run composer install
+        run: composer install
+
+      - name: setup .env
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+
+      - name: Generate Laroute info
+        run: php artisan laroute:generate
+
+      - name: Run PHPUnit
+        run: ./vendor/bin/phpunit
+
+      - name: Run yarn install
+        run: yarn install
+
+      - name: Build Javascript
+        run: yarn run dev
+
+      - name: Trigger beta deploy
+        run: curl --fail ${PROD_HOST}/api/dev_ops/auto_deploy?deploy_token=${PROD_DEPLOY_TOKEN}
+        env:
+          PROD_HOST: ${{ secrets.PROD_HOST }}
+          PROD_DEPLOY_TOKEN: ${{ secrets.PROD_DEPLOY_TOKEN }}
