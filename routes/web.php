@@ -31,6 +31,9 @@ Route::group(
         Route::get('/tags/{id}', function () {
             return view('index');
         })->name('tag_detail');
+        Route::get('/privacy', function () {
+            return view('index');
+        })->name('privacy');
 
         // JSから読めるもので認証が必要
         Route::group(

@@ -74,9 +74,7 @@
             </div>
         </nav>
 
-        <main class="py-3 mx-auto main-body">
-            @yield('content')
-        </main>
+        @yield('content')
     </div>
 
     <!-- Scripts -->
