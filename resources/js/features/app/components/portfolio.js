@@ -10,6 +10,7 @@ import AdminAccountsPage from 'src/features/admin/accounts_page';
 import AdminIntroductionPage from 'src/features/admin/introduction_page';
 import WorkDetail from 'src/features/work_detail';
 import TagDetail from 'src/features/tag_detail';
+import Privacy from 'src/features/privacy';
 import laroute from 'src/laroute.js';
 
 export default class Portfolio extends React.Component {
@@ -27,6 +28,7 @@ export default class Portfolio extends React.Component {
                 <Route path={laroute.route('admin_introduction')} component={AdminIntroductionPage} />
                 <Route path={laroute.route('work_detail').replace(/\{([^\{\}]*)\}/g, ':$1')} component={WorkDetail} />
                 <Route path={laroute.route('tag_detail').replace(/\{([^\{\}]*)\}/g, ':$1')} component={TagDetail} />
+                <Route path={laroute.route('privacy')} component={Privacy} />
             </Switch>
         );
     }

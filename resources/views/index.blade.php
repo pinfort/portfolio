@@ -10,7 +10,7 @@
 @endsection
 
 @section('content')
-<div id="content"></div>
+<main class="mx-auto main-body" id="content"></main>
 @endsection
 
 @section('scripts')

@@ -91,7 +91,12 @@ class Deploy extends Command
         }
 
         $this->info('building javaScript');
-        exec(config('dev_ops.yarn_path').' run prod 2>&1', $out, $return_var);
+        if (\App::environment('testing')) {
+            $yarn_build_env = 'dev';
+        } else {
+            $yarn_build_env = 'prod';
+        }
+        exec(config('dev_ops.yarn_path').' run '.$yarn_build_env.' 2>&1', $out, $return_var);
         if ($return_var !== 0) {
             $this->error('failed to build javaScript');
             foreach ($out as $line) {

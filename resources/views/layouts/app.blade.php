@@ -74,9 +74,13 @@
             </div>
         </nav>
 
-        <main class="py-3 mx-auto main-body">
-            @yield('content')
-        </main>
+        @yield('content')
+
+        <footer>
+            <div class="text-center">
+                Copyright © 2018 pinfort
+            </div>
+        </footer>
     </div>
 
     <!-- Scripts -->

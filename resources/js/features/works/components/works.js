@@ -37,7 +37,7 @@ export default class Works extends React.Component {
                 // </詳細ページ>
 
                 const card_body = (
-                    <Link key={'work_card_link'} to={'/works/' + id}>
+                    <Link key={'work_card_link_' + id} to={'/works/' + id}>
                         <div className='card-body' key={'work_card_body'}>
                             {card_name}
                             {card_desc}
@@ -45,7 +45,7 @@ export default class Works extends React.Component {
                     </Link>
                 );
                 cards.push(
-                    <div className={'card mx-2 mb-3'} style={{ width: '15rem' }}>
+                    <div key={'works_card_' + id} className={'card mx-2 mb-3'} style={{ width: '15rem' }}>
                         {card_body}
                     </div>
                 );
