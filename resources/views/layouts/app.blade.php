@@ -76,8 +76,8 @@
 
         @yield('content')
 
-        <footer>]
-            <div class="ml-auto mr-auto">
+        <footer>
+            <div class="text-center">
                 Copyright © 2018 pinfort
             </div>
         </footer>
