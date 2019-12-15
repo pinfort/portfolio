@@ -6,7 +6,7 @@ export default class MainFooter extends React.Component {
         return (
             <footer>
                 <nav class="navbar navbar-expand-md navbar-light">
-                    <ul class="nav navbar-nav ml-auto">
+                    <ul class="nav navbar-nav ml-auto mr-auto">
                         <li class="nav-item">
                             <Link className="nav-link" key={'privacy_link'} to={'/privacy'}>訪問者のプライバシーに関する情報</Link>
                         </li>
