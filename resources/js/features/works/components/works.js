@@ -37,7 +37,7 @@ export default class Works extends React.Component {
                 // </詳細ページ>
 
                 const card_body = (
-                    <Link key={'work_card_link'} to={'/works/' + id}>
+                    <Link key={'work_card_link_' + row.get('name')} to={'/works/' + id}>
                         <div className='card-body' key={'work_card_body'}>
                             {card_name}
                             {card_desc}
