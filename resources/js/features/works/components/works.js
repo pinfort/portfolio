@@ -45,7 +45,7 @@ export default class Works extends React.Component {
                     </Link>
                 );
                 cards.push(
-                    <div className={'card mx-2 mb-3'} style={{ width: '15rem' }} key={'works_card_' + id}>
+                    <div key={'works_card_' + id} className={'card mx-2 mb-3'} style={{ width: '15rem' }}>
                         {card_body}
                     </div>
                 );
