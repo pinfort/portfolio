@@ -75,6 +75,12 @@
         </nav>
 
         @yield('content')
+
+        <footer>]
+            <div class="ml-auto mr-auto">
+                Copyright © 2018 pinfort
+            </div>
+        </footer>
     </div>
 
     <!-- Scripts -->
