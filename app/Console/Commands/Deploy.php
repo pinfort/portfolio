@@ -91,7 +91,7 @@ class Deploy extends Command
         }
 
         $this->info('building javaScript');
-        if (App::environment('testing')) {
+        if (\App::environment('testing')) {
             $yarn_build_env = 'dev';
         } else {
             $yarn_build_env = 'prod';
