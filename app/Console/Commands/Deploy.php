@@ -50,7 +50,7 @@ class Deploy extends Command
             unset($line);
             unset($out);
             unset($return_var);
-            throw new Exception;
+            return 1;
         }
         unset($out);
         unset($return_var);
@@ -68,7 +68,7 @@ class Deploy extends Command
             unset($line);
             unset($out);
             unset($return_var);
-            throw new Exception;
+            return 1;
         }
         unset($out);
         unset($return_var);
@@ -86,7 +86,7 @@ class Deploy extends Command
             unset($line);
             unset($out);
             unset($return_var);
-            throw new Exception;
+            return 1;
         }
         unset($out);
         unset($return_var);
@@ -96,7 +96,7 @@ class Deploy extends Command
             '--force' => true,
         ]) !== 0) {
             $this->error('failed to migrate database');
-            throw new Exception;
+            return 1;
         }
 
         $this->info('installing js dependencies');
@@ -109,7 +109,7 @@ class Deploy extends Command
             unset($line);
             unset($out);
             unset($return_var);
-            throw new Exception;
+            return 1;
         }
         unset($out);
         unset($return_var);
@@ -117,7 +117,7 @@ class Deploy extends Command
         $this->info('generating laroutejs');
         if ($this->call('laroute:generate') !== 0) {
             $this->error('failed to generate laroute');
-            throw new Exception;
+            return 1;
         }
 
         $this->info('building javaScript');
@@ -135,7 +135,7 @@ class Deploy extends Command
             unset($line);
             unset($out);
             unset($return_var);
-            throw new Exception;
+            return 1;
         }
         unset($out);
         unset($return_var);
