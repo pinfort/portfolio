@@ -62,7 +62,7 @@ export default class Works extends React.Component {
         }
 
         return (
-            <div className='m-3'>
+            <div className='m-3' key={'main_works_wrap'}>
                 <h3 className='text-center'>Works</h3>
                 <div id='works-body' key={'main_works'} className='card-body flex-wrap'>
                     {cards}
