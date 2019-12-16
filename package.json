@@ -14,7 +14,7 @@
         "axios": "^0.19",
         "babel-eslint": "^10.0",
         "babel-preset-react": "^6.24",
-        "cross-env": "^5.1",
+        "cross-env": "^6.0",
         "eslint": "^6.7",
         "eslint-plugin-import": "^2.19",
         "eslint-plugin-jsx-a11y": "^6.2.3",
