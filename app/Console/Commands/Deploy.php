@@ -76,6 +76,21 @@ class Deploy extends Command
         $this->info('pull data finished');
         $this->info(shell_exec('git show --oneline -s'));
 
+        $this->info('installing php dependencies');
+        exec(config('dev_ops.composer_path').' install 2>&1', $out, $return_var);
+        if ($return_var !== 0) {
+            $this->error('failed to install php dependencies');
+            foreach ($out as $line) {
+                $this->error($line);
+            }
+            unset($line);
+            unset($out);
+            unset($return_var);
+            return 1;
+        }
+        unset($out);
+        unset($return_var);
+
         $this->info('migrating database');
         if ($this->call('migrate', [
             '--force' => true,
@@ -83,6 +98,21 @@ class Deploy extends Command
             $this->error('failed to migrate database');
             return 1;
         }
+
+        $this->info('installing js dependencies');
+        exec(config('dev_ops.yarn_path').' install 2>&1', $out, $return_var);
+        if ($return_var !== 0) {
+            $this->error('failed to install js dependencies');
+            foreach ($out as $line) {
+                $this->error($line);
+            }
+            unset($line);
+            unset($out);
+            unset($return_var);
+            return 1;
+        }
+        unset($out);
+        unset($return_var);
 
         $this->info('generating laroutejs');
         if ($this->call('laroute:generate') !== 0) {

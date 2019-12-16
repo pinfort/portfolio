@@ -22,10 +22,11 @@ class AutoDeployController extends Controller
         // $job = new Process(PHP_BINARY.' '.base_path('artisan').' deploy '.config('dev_ops.branch'));
         // $job->start();
         $output = new BufferedOutput();
-        \Artisan::call('deploy', ['branch' => config('dev_ops.branch')], $output);
+        $status = \Artisan::call('deploy', ['branch' => config('dev_ops.branch')], $output);
+        $response_code = $status === 0 ? 200 : 500;
         return response(
             $output->fetch(),
-            200
+            $response_code
         )->header('Content-Type', 'text/plain');
     }
 }
