@@ -77,7 +77,7 @@ class Deploy extends Command
         $this->info(shell_exec('git show --oneline -s'));
 
         $this->info('installing php dependencies');
-        exec('composer install 2>&1', $out, $return_var);
+        exec(config('dev_ops.composer_path').' install 2>&1', $out, $return_var);
         if ($return_var !== 0) {
             $this->error('failed to install php dependencies');
             foreach ($out as $line) {
