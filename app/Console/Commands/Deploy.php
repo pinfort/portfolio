@@ -100,7 +100,7 @@ class Deploy extends Command
         }
 
         $this->info('installing js dependencies');
-        exec(config('dev_ops.yarn_path').' install 2>&1', $out, $return_var);
+        exec(config('dev_ops.yarn_path').' install --pure-lockfile 2>&1', $out, $return_var);
         if ($return_var !== 0) {
             $this->error('failed to install js dependencies');
             foreach ($out as $line) {
