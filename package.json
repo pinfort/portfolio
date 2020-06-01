@@ -28,7 +28,7 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.12",
         "babel-plugin-transform-class-properties": "^6.24.1",
-        "bootstrap": "^4.4",
+        "bootstrap": "^4.5",
         "classnames": "^2.2",
         "font-awesome-scss": "^1.0.0",
         "immutable": "^3.8.2",
