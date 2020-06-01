@@ -40,7 +40,7 @@
         "react-immutable-proptypes": "^2.1.0",
         "react-redux": "^7.1",
         "react-router": "^5.1",
-        "react-router-dom": "^5.1",
+        "react-router-dom": "^5.2",
         "react-router-redux": "^4.0.8",
         "react-toggle-button": "^2.2.0",
         "redux": "^4.0",
