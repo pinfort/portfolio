@@ -1019,24 +1019,24 @@
         },
         {
             "name": "lord/laroute",
-            "version": "v2.4.9",
+            "version": "2.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aaronlord/laroute.git",
-                "reference": "e26d30b565861c28fc99337c50f87b30d66b15ea"
+                "reference": "dedc36465836e6949e197011fb2b3e916c393bfa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aaronlord/laroute/zipball/e26d30b565861c28fc99337c50f87b30d66b15ea",
-                "reference": "e26d30b565861c28fc99337c50f87b30d66b15ea",
+                "url": "https://api.github.com/repos/aaronlord/laroute/zipball/dedc36465836e6949e197011fb2b3e916c393bfa",
+                "reference": "dedc36465836e6949e197011fb2b3e916c393bfa",
                 "shasum": ""
             },
             "require": {
-                "illuminate/config": "5.0.*|5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*|5.8.*",
-                "illuminate/console": "5.0.*|5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*|5.8.*",
-                "illuminate/filesystem": "5.0.*|5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*|5.8.*",
-                "illuminate/routing": "5.0.*|5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*|5.8.*",
-                "illuminate/support": "5.0.*|5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*|5.8.*",
+                "illuminate/config": "5.0.*|5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*|5.8.*|6.0.*|7.0.*",
+                "illuminate/console": "5.0.*|5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*|5.8.*|6.0.|7.0.*",
+                "illuminate/filesystem": "5.0.*|5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*|5.8.*|6.0.*|7.0.*",
+                "illuminate/routing": "5.0.*|5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*|5.8.*|6.0.*|7.0.*",
+                "illuminate/support": "5.0.*|5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*|5.8.*|6.0.*|7.0.*",
                 "php": ">=5.4.0"
             },
             "require-dev": {
@@ -1066,7 +1066,7 @@
                 "routes",
                 "routing"
             ],
-            "time": "2019-05-11T10:01:00+00:00"
+            "time": "2020-05-26T14:44:57+00:00"
         },
         {
             "name": "monolog/monolog",
