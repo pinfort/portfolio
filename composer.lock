@@ -4330,16 +4330,16 @@
         },
         {
             "name": "filp/whoops",
-            "version": "2.9.0",
+            "version": "2.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "2ec31f3adc54c71a59c5e3c2143d7a0e2f8899f8"
+                "reference": "df7933820090489623ce0be5e85c7e693638e536"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/2ec31f3adc54c71a59c5e3c2143d7a0e2f8899f8",
-                "reference": "2ec31f3adc54c71a59c5e3c2143d7a0e2f8899f8",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/df7933820090489623ce0be5e85c7e693638e536",
+                "reference": "df7933820090489623ce0be5e85c7e693638e536",
                 "shasum": ""
             },
             "require": {
@@ -4389,9 +4389,15 @@
             ],
             "support": {
                 "issues": "https://github.com/filp/whoops/issues",
-                "source": "https://github.com/filp/whoops/tree/2.9.0"
+                "source": "https://github.com/filp/whoops/tree/2.9.2"
             },
-            "time": "2020-10-20T12:00:00+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/denis-sokolov",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-01-24T12:00:00+00:00"
         },
         {
             "name": "fzaninotto/faker",
